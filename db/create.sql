@@ -33,7 +33,7 @@ CREATE TABLE `user_message` (
   KEY `user_id` (`user_id`),
   CONSTRAINT `user_message_ibfk_1` FOREIGN KEY (`user_type_id`) REFERENCES `user_type` (`id`),
   CONSTRAINT `user_message_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS essay;
 CREATE TABLE essay(
@@ -46,6 +46,15 @@ create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 update_date TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
 FOREIGN KEY(user_id) REFERENCES user(id) ON DELETE CASCADE
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS register;
+CREATE TABLE `register` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(206) NOT NULL,
+  `verification_code` varchar(4) NOT NULL,
+  `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
 
 #插入数据
 INSERT INTO `springMVC`.`user` (`name`, `password`, `slogan`) VALUES ('曲1', 'password', 'sb的宣言');

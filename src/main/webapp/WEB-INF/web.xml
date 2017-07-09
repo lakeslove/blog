@@ -1,7 +1,63 @@
-<!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+	<display-name>blog</display-name>
 
-<web-app>
-  <display-name>Archetype Created Web Application</display-name>
+	<!-- 访问的首页的配置 -->
+	<welcome-file-list>
+		<welcome-file>index.htm</welcome-file>
+	</welcome-file-list>
+
+	<!-- session和cookie的配置 -->
+	<session-config>
+		<session-timeout>40</session-timeout>
+		<cookie-config>
+			<name>blog</name>
+			<http-only>true</http-only>
+		</cookie-config>
+	</session-config>
+	
+	<!-- springMVC的拦截器配置，这个是重点 -->
+  <servlet>
+    <servlet-name>spring-dispatcher</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value></param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>spring-dispatcher</servlet-name>
+    <url-pattern>*.htm</url-pattern>
+  </servlet-mapping>
+  
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>/WEB-INF/classes/spring_context.xml</param-value>
+  </context-param>
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+
+<!-- 防止乱码的配置，这个配置的mapping一定要在loginFilter之前，否则loginFilte里乱码 -->
+  <filter>
+    <filter-name>encodingFilter</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+    <init-param>
+      <param-name>forceEncoding</param-name>
+      <param-value>true</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>encodingFilter</filter-name>
+    <servlet-name>spring-dispatcher</servlet-name>
+  </filter-mapping>
+  
 </web-app>

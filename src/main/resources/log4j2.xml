@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="off" monitorInterval="3600">
+
+	<properties>
+		<property name="LOG_HOME">/var/work/blog/log</property>
+		<property name="FILE_NAME">blog</property>
+	</properties>
+	
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout charset="UTF-8" pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+
+		<RollingRandomAccessFile name="running-log"
+			fileName="${LOG_HOME}/${FILE_NAME}.log"
+			filePattern="${LOG_HOME}/$${date:yyyy-MM}/${FILE_NAME}-%d{yyyy-MM-dd}-%i.log.gz">
+			<PatternLayout charset="UTF-8"
+				pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%file:%line] - %msg%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="10 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="50" />
+		</RollingRandomAccessFile>
+	</Appenders>
+
+	<Loggers>
+		<!-- level = OFF、FATAL、ERROR、WARN、INFO、DEBUG、TRACE、 ALL -->
+		<Root level="info">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="running-log" />
+		</Root>
+	</Loggers>
+</Configuration>

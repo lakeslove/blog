@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="tiles.template.public" template="/WEB-INF/tiles/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/tiles/header.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
+	</definition>
+	
+	<definition name="tiles.view.body.index" extends="tiles.template.public">
+		<put-attribute name="title" value="view.top.title" />
+		<put-attribute name="css" value="" />
+		<put-attribute name="js" value="" />
+		<put-attribute name="body" value="/WEB-INF/view/index.jsp" />
+	</definition>
+	
+	<definition name="tiles.view.body.register" extends="tiles.template.public">
+		<put-attribute name="title" value="view.top.title" />
+		<put-attribute name="css" value="" />
+		<put-attribute name="js" value="" />
+		<put-attribute name="body" value="/WEB-INF/view/register.jsp" />
+	</definition>
+	
+	<definition name="tiles.view.body.files" extends="tiles.template.public">
+		<put-attribute name="title" value="view.top.title" />
+		<put-attribute name="css" value="" />
+		<put-attribute name="js" value="" />
+		<put-attribute name="body" value="/WEB-INF/view/files.jsp" />
+	</definition>
+	
+	<definition name="tiles.view.body.frames" extends="tiles.template.public">
+		<put-attribute name="title" value="view.top.title" />
+		<put-attribute name="css" value="" />
+		<put-attribute name="js" value="" />
+		<put-attribute name="body" value="/WEB-INF/view/frames.jsp" />
+	</definition>
+	
+	<definition name="tiles.view.body.javas" extends="tiles.template.public">
+		<put-attribute name="title" value="view.top.title" />
+		<put-attribute name="css" value="" />
+		<put-attribute name="js" value="" />
+		<put-attribute name="body" value="/WEB-INF/view/javas.jsp" />
+	</definition>
+	
+	<definition name="tiles.view.body.others" extends="tiles.template.public">
+		<put-attribute name="title" value="view.top.title" />
+		<put-attribute name="css" value="" />
+		<put-attribute name="js" value="" />
+		<put-attribute name="body" value="/WEB-INF/view/others.jsp" />
+	</definition>
+	
+	<definition name="tiles.view.body.testError" extends="tiles.template.public">
+		<put-attribute name="title" value="view.top.title" />
+		<put-attribute name="css" value="" />
+		<put-attribute name="js" value="" />
+		<put-attribute name="body" value="/WEB-INF/view/testError.jsp" />
+	</definition>
+	
+	<!-- datas开始 -->
+	<definition name="tiles.view.body.userList" extends="tiles.template.public">
+		<put-attribute name="title" value="view.top.title" />
+		<put-attribute name="css" value="" />
+		<put-attribute name="js" value="" />
+		<put-attribute name="body" value="/WEB-INF/view/datas/crudRD.jsp" />
+	</definition>
+	
+	<definition name="tiles.view.body.userMessage" extends="tiles.template.public">
+		<put-attribute name="title" value="view.top.title" />
+		<put-attribute name="css" value="" />
+		<put-attribute name="js" value="" />
+		<put-attribute name="body" value="/WEB-INF/view/datas/crudCU.jsp" />
+	</definition>
+	<!-- datas结束 -->
+	
+	<!-- files开始 -->
+	<definition name="tiles.view.body.filesList" extends="tiles.template.public">
+		<put-attribute name="title" value="view.top.title" />
+		<put-attribute name="css" value="" />
+		<put-attribute name="js" value="" />
+		<put-attribute name="body" value="/WEB-INF/view/files/filesList.jsp" />
+	</definition>
+	<!-- files结束 -->
+	
+	<!-- others开始 -->
+	<definition name="tiles.view.body.js" extends="tiles.template.public">
+		<put-attribute name="title" value="view.top.title" />
+		<put-attribute name="css" value="" />
+		<put-attribute name="js" value="" />
+		<put-attribute name="body" value="/WEB-INF/view/others/js/js.jsp" />
+	</definition>
+	
+	<definition name="tiles.view.body.pictureShut" extends="tiles.template.public">
+		<put-attribute name="title" value="view.top.title" />
+		<put-attribute name="css" value="" />
+		<put-attribute name="js" value="" />
+		<put-attribute name="body" value="/WEB-INF/view/others/demos/canvasPictureShut.jsp" />
+	</definition>
+	
+	<definition name="tiles.view.body.animate" extends="tiles.template.public">
+		<put-attribute name="title" value="view.top.title" />
+		<put-attribute name="css" value="" />
+		<put-attribute name="js" value="" />
+		<put-attribute name="body" value="/WEB-INF/view/others/demos/animate.jsp" />
+	</definition>
+	
+	<definition name="tiles.view.body.orcCanvas" extends="tiles.template.public">
+		<put-attribute name="title" value="view.top.title" />
+		<put-attribute name="css" value="" />
+		<put-attribute name="js" value="" />
+		<put-attribute name="body" value="/WEB-INF/view/others/demos/orcCanvas.jsp" />
+	</definition>
+	
+	<definition name="tiles.view.body.calendar" extends="tiles.template.public">
+		<put-attribute name="title" value="view.top.title" />
+		<put-attribute name="css" value="" />
+		<put-attribute name="js" value="" />
+		<put-attribute name="body" value="/WEB-INF/view/others/demos/calendar.jsp" />
+	</definition>
+	
+	<definition name="tiles.view.body.calculator" extends="tiles.template.public">
+		<put-attribute name="title" value="view.top.title" />
+		<put-attribute name="css" value="" />
+		<put-attribute name="js" value="" />
+		<put-attribute name="body" value="/WEB-INF/view/others/demos/calculator.jsp" />
+	</definition>
+	<!-- others结束 -->
+	
+</tiles-definitions>

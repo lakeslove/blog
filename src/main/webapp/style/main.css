@@ -1,0 +1,120 @@
+@CHARSET "UTF-8";
+
+body {
+    margin: 0;
+    font-size: 1.2em;
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,STHeiti,"Microsoft Yahei",sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #333;
+}
+a{
+	cursor: pointer;
+	text-decoration: none;
+}
+
+
+.header{
+	position:relative;
+	margin:10px 5px;
+	overflow: hidden;
+}
+.contenter{
+	position:relative;
+	margin:10px 5px;
+	overflow: hidden;
+	min-height: 300px;
+}
+.footer{
+	position:relative;
+	padding:10px;
+	background-color:#c1dacc;
+	margin:10px 5px;
+	overflow: hidden;
+}
+
+button,input[type=button],input[type=reset],input[type=submit]{
+	font-size: 12px;
+	border-ridus: 5px;
+	line-height: 12px;
+	height: 22px;
+	/* line-height: 16px; */
+	/* height: 22px; */
+	/* width: 64px; */
+}
+
+.publicButton{
+	font-size: 12px;
+	border-ridus: 5px;
+	line-height: 12px;
+	height: 22px;
+	/* width: 64px; */
+}
+
+/* start japanese */
+.input-ime-mode-active{
+	ime-mode:active;
+}
+
+/* start english number */
+.input-ime-mode-inactive{
+	ime-mode:inactive;
+}
+
+/* start english number,but can not change */
+.input-ime-mode-disabled{
+	ime-mode:disabled;
+}
+
+.inputTolabel{
+	border:none;
+}
+.inputError{
+	color : red;
+}
+
+.inputHidden{
+	display:none;
+}
+td{
+	word-wrap: break-word;
+    word-break: break-all;
+}
+.shouldHiddenInput{
+	display:none;
+}
+.row {
+    width: 100%;
+    max-width: 1140px;
+    min-width: 755px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.col{
+	margin-right: 1%;
+    float: left;
+}
+.pr{
+	position:relative;
+}
+.blocks{
+	position:relative;
+	overflow:hidden;
+	margin:10px;
+	border:solid 1px red;
+	min-height: 400px;
+}
+.block{
+	position:relative;
+	float: left;
+	width:150px;
+	height:150px;
+	background-color:#99dea5;
+	margin:10px;
+	text-align:center;
+	line-height:150px;
+}
+.small_content{
+	bolder:solid 1px red;
+	margin:10px;
+	padding:10px;
+}

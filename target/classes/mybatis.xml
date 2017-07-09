@@ -4,7 +4,7 @@
 
 	<settings>
 		<!-- 指定 MyBatis 所用日志的具体实现 -->
-		<setting name="logImpl" value="LOG4J" />
+		<setting name="logImpl" value="SLF4J" />
 		<!-- 默认映射到驼峰式的变量名上 -->
 		<setting name="mapUnderscoreToCamelCase" value="true" />
 		<!-- 这个配置使全局的映射器启用或禁用缓存 -->
@@ -22,12 +22,14 @@
 	<!-- 别名设置 -->
 	<typeAliases>
 		<!-- <typeAlias alias="role" type="com.learn.lx.pojo.Role"/> -->
-		<typeAlias alias="user" type="com.lx.models.User"/>
+		<!-- <typeAlias alias="user" type="com.lx.blog.model.User"/> -->
+		<package name="com.lx.blog.model"/>
 	</typeAliases>
 	
 	<!-- 指定映射器 -->
 	<mappers>
-		<mapper resource="com/lx/daos/impl/user.xml"/>
+		<!-- <mapper resource="com/lx/blog/dao/Impl/UserDaoImpl.xml"/> -->
+		<package name="com.lx.blog.dao.Impl"/>
 	</mappers>
 	
 </configuration>

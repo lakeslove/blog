@@ -30,8 +30,8 @@
 	<task:scheduler id="scheduler" pool-size="1" />
 	<task:annotation-driven executor="taskExecutor" scheduler="scheduler" />
 	<!-- 需要扫描的包 start-->
-	<context:component-scan base-package="com.lx.controllers" />
-	<context:component-scan base-package="com.lx.services.impl" />
+	<context:component-scan base-package="com.lx.blog.controller" />
+	<context:component-scan base-package="com.lx.blog.service.impl" />
 	<!-- 需要扫描的包 end -->
 	
  	<mvc:annotation-driven />
@@ -63,23 +63,12 @@
 		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
 		<property name="definitions">
 			<list>
-				<value>/WEB-INF/classes/tilesPublic.xml</value>
+				<value>/WEB-INF/classes/tilesOpen.xml</value>
 			</list>
 		</property>
 	</bean>
 	<!-- tiles 配置结束 -->
 	<!-- viewResolver end -->
-	
-	<!--  hibernate start-->
-	<!-- jndi start -->
-	<!-- 	 
-	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">  
-        <property name="jndiName">  
-            <value>${db.jndiname}</value>  
-        </property>  
-    </bean> 
-    -->
-    <!-- jndi end -->
     
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
 		destroy-method="close">
@@ -143,7 +132,7 @@
 	<!-- 国际化（多语言对应） 结束-->
 	
 	<!-- 异常处理 start -->
-	<!-- <bean class="com.lx.exceptions.ExceptionHandler" /> -->
+	<!-- <bean class="com.lx.blog.exception.ExceptionHandler" /> -->
 	<bean id="exceptionResolver"
 		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="exceptionMappings">
@@ -209,35 +198,26 @@
 	<!-- sendEmail end -->
 	
 	<!-- IOC demo start -->
-	<!-- springFrome initiate check start -->
-	<!-- <bean class="com.lx.utils.CheckConfigs">
-		<property name="dbUrl" value="${db.url}" />
-		<property name="userDao">
-			<bean class="com.lx.daos.impl.UserDaoImpl" /> 
-		</property>
-	</bean> -->
-	<!-- initiate check end -->
 	
 	<!-- 在过滤器中注入service start-->
-	<bean id="userService" class="com.lx.services.impl.UserServiceImpl"></bean>
+	<!-- 	<bean id="userService" class="com.lx.blog.service.impl.UserServiceImpl"></bean> -->
 	<!-- 在过滤器中注入service end-->
 	
 	<!-- IOC demo end-->
 	
 	<!-- AOP demo start  -->
 	<!-- 切面类 -->
-	<bean id="appendLogsByAOP" class="com.lx.utils.AppendLogsByAOP"/>
+	<bean id="appendLogsByAOP" class="com.lx.blog.util.AppendLogsByAOP"/>
 	<!-- 切入点 -->
-	<aop:config>
-		<aop:pointcut id="afterMethodPoint" expression="execution(* com.lx.controllers.publics.*Controller.*(..))"/>
+<!-- 	<aop:config>
+		<aop:pointcut id="afterMethodPoint" expression="execution(* com.lx.blog.controller.*.*Controller.*(..))"/>
 		<aop:aspect id = "appendLogs" ref="appendLogsByAOP">
-			<aop:before method="logOutputBeforeMethod" pointcut="execution(* com.lx.controllers.publics.*Controller.*(..))"/>
-			<aop:after-throwing method="logOutputAfterThrows" pointcut="execution(* com.lx.controllers.publics.*Controller.*(..))"/>
-			<!-- 可以用 pointcut-ref来指代相同的pointcut-->
+			<aop:before method="logOutputBeforeMethod" pointcut="afterMethodPoint"/>
+			<aop:after-throwing method="logOutputAfterThrows" pointcut="afterMethodPoint"/>
 			<aop:after-returning method="logOutputAfterReturn" pointcut-ref="afterMethodPoint"/>
 			<aop:after method="logOutputAfterMethod" pointcut-ref="afterMethodPoint"/>
 		</aop:aspect>
-	</aop:config>
+	</aop:config> -->
 	<!-- AOP demo end  -->
 	
 	
