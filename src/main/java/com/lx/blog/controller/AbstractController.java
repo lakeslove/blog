@@ -20,6 +20,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 public class AbstractController {
 	private static final Logger log = LoggerFactory.getLogger(AbstractController.class);
 	
+	public static final String SESSION_LOGIN_USER = "SESSION_LOGIN_USER";
 	public static final String RESULT = "result";
 	public static final String FALSE = "false";
 	public static final String TRUE = "true";

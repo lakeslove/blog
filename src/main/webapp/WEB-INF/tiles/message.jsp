@@ -8,7 +8,8 @@
 <script>
 var messageError={
 		"error.email.format" : "<fmt:message key='error.email.format'/>",
-		"error.email.has.existed" : "<fmt:message key='error.email.has.existed'/>"
+		"error.email.has.existed" : "<fmt:message key='error.email.has.existed'/>",
+		"error.passwrod.is.null" : "<fmt:message key='error.passwrod.is.null'/>"
 };
 
 var messageGeneric={

@@ -60,4 +60,23 @@
     <servlet-name>spring-dispatcher</servlet-name>
   </filter-mapping>
   
+   <!-- 自定义的登录过滤器 -->
+  <filter>
+    <display-name>LoginFilter</display-name>
+    <filter-name>LoginFilter</filter-name>
+    <filter-class>com.lx.blog.filter.LoginFilter</filter-class>
+    <init-param>
+      <param-name>indexPath</param-name>
+      <param-value>/login.htm</param-value>
+    </init-param>
+    <init-param>
+      <param-name>ignoreList</param-name>
+      <param-value></param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>LoginFilter</filter-name>
+    <url-pattern>/manager/*</url-pattern>
+  </filter-mapping>
+  
 </web-app>

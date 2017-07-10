@@ -68,7 +68,7 @@ public class RegisterController extends AbstractController{
 			return "tiles.view.body.register";
 		}
 		HttpSession session = getSession();
-		session.setAttribute("name", user.getName());
+		session.setAttribute(SESSION_LOGIN_USER, user);
 		return "redirect:index.htm";
 	}
 	

@@ -43,7 +43,7 @@ function checkParameters(){
 	return true;
 }
 </script>
-<div class="blocks_title">java</div>
+<div class="blocks_title">新用户注册</div>
 <div class="blocks">
 <form:form id="registerForm" modelAttribute="user" action="register.htm" method="post" onsubmit="return allSubmit(checkParameters);">
 <table>
@@ -51,7 +51,7 @@ function checkParameters(){
 <tr><td colspan="2"><span class="errorText"><c:out value="${validateError}"/></span></td></tr>
 </c:if>
 <tr><td>用户名</td><td><form:input id="name" type="text" path="name" placeholder="最长6位"/></td></tr>
-<tr><td>密码</td><td><form:input id="password" type="text" path="password" placeholder="最长8位"/></td></tr>
+<tr><td>密码</td><td><form:input id="password" type="password" path="password" placeholder="最长8位"/></td></tr>
 <tr><td>邮箱</td><td><form:input id="email" type="text" path="email" placeholder="邮箱"/><td><div class="vitualButton" id="getVerificationCode">获取验证码</div></td></tr>
 <tr><td>验证码</td><td><input id="code" type="text" name="code" placeholder="验证码"/></td></tr>
 <tr><td colspan="2"><input type="submit" value="提交"></td></tr>

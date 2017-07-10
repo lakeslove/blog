@@ -25,11 +25,11 @@
 		<put-attribute name="body" value="/WEB-INF/view/register.jsp" />
 	</definition>
 	
-	<definition name="tiles.view.body.files" extends="tiles.template.public">
+	<definition name="tiles.view.body.login" extends="tiles.template.public">
 		<put-attribute name="title" value="view.top.title" />
 		<put-attribute name="css" value="" />
 		<put-attribute name="js" value="" />
-		<put-attribute name="body" value="/WEB-INF/view/files.jsp" />
+		<put-attribute name="body" value="/WEB-INF/view/login.jsp" />
 	</definition>
 	
 	<definition name="tiles.view.body.frames" extends="tiles.template.public">

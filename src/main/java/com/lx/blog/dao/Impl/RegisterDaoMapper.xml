@@ -9,7 +9,11 @@
 	</insert>
 
 	<select id="existEmail" parameterType="string" resultType="int">
-		select count(*) from register where email = #{email}
+		select count(*) from (
+		select email from register where email = #{email} 
+		UNION ALL
+		select email from user where email = #{email}
+		) as tmp
 	</select>
 	
 	<select id="validateEmailAndVerificationCode" parameterType="register" resultType="hashMap">

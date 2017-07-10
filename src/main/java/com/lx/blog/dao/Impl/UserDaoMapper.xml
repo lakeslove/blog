@@ -16,6 +16,11 @@
 			</if>
 		</where>
 	</select>
+	
+	<select id="getUserByEmailAndPassword" parameterType="user" resultType="user">
+		select * from user where email = #{email} and password = #{password}
+	</select>
+	
 
 	<select id="getCount" parameterType="string" resultType="Long">
 		select count(*) from user

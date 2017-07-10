@@ -57,4 +57,10 @@ public class UserServiceImpl extends AbstractService<User, Long>implements UserS
 		}
 		return pageData;
 	}
+
+	@Override
+	public User loginValidate(User user) {
+		User wholeUser = userDao.getUserByEmailAndPassword(user);
+		return wholeUser;
+	}
 }

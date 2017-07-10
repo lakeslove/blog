@@ -5,10 +5,12 @@ import com.lx.blog.model.User;
 import com.lx.blog.util.PageData;
 
 public interface UserService extends Service<User, Long>{
-	public PageData<User> serchUsers(User user,int currentPage);
-	public User getUser(Long id);
-	public int insertUser(User user);
-	public int deleteUser(Long id);
-	public int updateUser(User user);
-	public List<User> findUsers(String userName,int start,int limit);
+	PageData<User> serchUsers(User user,int currentPage);
+	User getUser(Long id);
+	int insertUser(User user);
+	int deleteUser(Long id);
+	int updateUser(User user);
+	List<User> findUsers(String userName,int start,int limit);
+	
+	User loginValidate(User user);
 }
