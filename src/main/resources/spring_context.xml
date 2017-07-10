@@ -31,7 +31,7 @@
 	<task:annotation-driven executor="taskExecutor" scheduler="scheduler" />
 	<!-- 需要扫描的包 start-->
 	<context:component-scan base-package="com.lx.blog.controller" />
-	<context:component-scan base-package="com.lx.blog.service.impl" />
+	<context:component-scan base-package="com.lx.blog.service" />
 	<!-- 需要扫描的包 end -->
 	
  	<mvc:annotation-driven />

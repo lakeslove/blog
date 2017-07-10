@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lx.blog.dao.RegisterDao">
+
+	<insert id="insertRegister" parameterType="register">
+		insert into register
+		(email,verification_code) values
+		(#{email},#{verificationCode})
+	</insert>
+
+	<select id="existEmail" parameterType="string" resultType="int">
+		select count(*) from register where email = #{email}
+	</select>
+	
+	<select id="validateEmailAndVerificationCode" parameterType="register" resultType="hashMap">
+		select id from register where email = #{email} and verification_code = #{verificationCode}
+	</select>
+	
+	<select id="getUser" parameterType="long" resultType="user">
+		select * from t_user id=#{id}
+	</select>
+
+	<delete id="deleteRegister" parameterType="long">
+		delete from register where id = #{id}
+	</delete>
+</mapper>

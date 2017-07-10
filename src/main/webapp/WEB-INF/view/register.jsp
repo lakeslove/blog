@@ -5,48 +5,56 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<script type="text/javascript" src="javascript/verification.js"></script>
 <script>
 $(document).ready(function() {
 	$("#getVerificationCode").click(function(){
 		var emailValue = $("#email").val();
+		if(!isEmail(emailValue)){
+			alert(messageError["error.email.format"]);
+			return;
+		}
 		$.AJAX({
-			url :  "validateEmail.htm",
-			type : "get",
+			url :  "getVerificationCode.htm",
+			type : "post",
 			data : {"email":emailValue},
 			dataType: "json",
 			success : function(data) {
-				
+				if(data.mark==true){
+					alert(data.message);
+				}else{
+					alert(data.message);
+				}
 			}
 		});
 	})
-/* 	var searchFormData = $('#searchUsersForm').serialize();
-	var tempData = searchFormData + ('&currentPage=' + page);
-	$.AJAX({
-		url :  "searchUsers.htm",
-		type : "post",
-		data : tempData,
-		dataType: "json",
-		success : function(data) {
-			showDatasInTable(data);
-		}ß
-	}); */
 });
+function checkParameters(){
+	var name = $("#name").val();
+	if(name.length>6){
+		alert("名字太长");
+		return false;
+	}
+	var name = $("#password").val();
+	if(name.length>8){
+		alert("密码太长");
+		return false;
+	}
+	return true;
+}
 </script>
 <div class="blocks_title">java</div>
 <div class="blocks">
-<form action="register.htm" method="post">
+<form:form id="registerForm" modelAttribute="user" action="register.htm" method="post" onsubmit="return allSubmit(checkParameters);">
 <table>
-<tr><td>用户名</td><td></td></tr>
-<tr><td>密码</td><td></td></tr>
-<tr><td>邮箱</td><td><input type="text" id="email" placeholder="邮箱"><td><button id="getVerificationCode">获取验证码</button></td></tr>
-<tr><td>验证码</td><td><input type="text" ></td></tr>
-<tr><td colspan="2"></td></tr>
-</table>
-</form>
-<form action="register.htm" method="post">
-<table>
-
+<c:if test="${!empty validateError } ">
+<tr><td colspan="2"><span class="errorText"><c:out value="${validateError}"/></span></td></tr>
+</c:if>
+<tr><td>用户名</td><td><form:input id="name" type="text" path="name" placeholder="最长6位"/></td></tr>
+<tr><td>密码</td><td><form:input id="password" type="text" path="password" placeholder="最长8位"/></td></tr>
+<tr><td>邮箱</td><td><form:input id="email" type="text" path="email" placeholder="邮箱"/><td><div class="vitualButton" id="getVerificationCode">获取验证码</div></td></tr>
+<tr><td>验证码</td><td><input id="code" type="text" name="code" placeholder="验证码"/></td></tr>
 <tr><td colspan="2"><input type="submit" value="提交"></td></tr>
 </table>
-</form>
+</form:form>
 </div>

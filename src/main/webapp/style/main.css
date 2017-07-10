@@ -34,7 +34,7 @@ a{
 
 button,input[type=button],input[type=reset],input[type=submit]{
 	font-size: 12px;
-	border-ridus: 5px;
+	border-ridius: 5px;
 	line-height: 12px;
 	height: 22px;
 	/* line-height: 16px; */
@@ -44,10 +44,22 @@ button,input[type=button],input[type=reset],input[type=submit]{
 
 .publicButton{
 	font-size: 12px;
-	border-ridus: 5px;
-	line-height: 12px;
+	border-ridius: 5px;
+	line-height: 14px;
 	height: 22px;
 	/* width: 64px; */
+}
+
+.vitualButton{
+	cursor:pointer;
+	border: solid 1px #bbabab;
+    background-color: #e2e1e1;
+    font-size: 14px;
+    line-height: 20px;
+    height: 22px;
+    border-radius: 5px;
+    padding:3px;
+}
 }
 
 /* start japanese */
@@ -117,4 +129,8 @@ td{
 	bolder:solid 1px red;
 	margin:10px;
 	padding:10px;
+}
+
+.errorText{
+	color:red;
 }

@@ -6,6 +6,7 @@
 <tiles-definitions>
 
 	<definition name="tiles.template.public" template="/WEB-INF/tiles/layout.jsp">
+		<put-attribute name="message" value="/WEB-INF/tiles/message.jsp" />
 		<put-attribute name="header" value="/WEB-INF/tiles/header.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
 	</definition>

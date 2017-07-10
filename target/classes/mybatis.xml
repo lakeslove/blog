@@ -29,7 +29,9 @@
 	<!-- 指定映射器 -->
 	<mappers>
 		<!-- <mapper resource="com/lx/blog/dao/Impl/UserDaoImpl.xml"/> -->
-		<package name="com.lx.blog.dao.Impl"/>
+		<!-- <package name="com.lx.blog.dao.Impl"/> -->
+		<mapper resource="com/lx/blog/dao/Impl/UserDaoMapper.xml"/>
+		<mapper resource="com/lx/blog/dao/Impl/RegisterDaoMapper.xml"/>
 	</mappers>
 	
 </configuration>

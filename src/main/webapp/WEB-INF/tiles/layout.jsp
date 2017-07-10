@@ -24,6 +24,7 @@
 <c:if test="${!empty js}">
 <script src="<tiles:getAsString name="js"/>"></script>
 </c:if>
+<tiles:insertAttribute name="message"/>
 </head>
 <body>
 <div id="position" style="position:relative">

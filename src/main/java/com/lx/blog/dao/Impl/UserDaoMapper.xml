@@ -3,9 +3,9 @@
 <mapper namespace="com.lx.blog.dao.UserDao">
 
 	<insert id="insertUser" parameterType="user">
-		insert into t_user
-		(user_name,birthday,sex,mobile,email,note) values
-		(#{roleName},#{createDate},#{date})
+		insert into user
+		(name,password,slogan,email) values
+		(#{name},#{password},#{slogan},#{email})
 	</insert>
 
 	<select id="findUsers" parameterType="string" resultType="user">

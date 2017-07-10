@@ -33,6 +33,9 @@ public class User extends Abstract implements Serializable {
 	
 	@Column(name = "slogan")
 	private String slogan;
+	
+	@Column(name = "email")
+	private String email;
 
 	public Long getId() {
 		return id;
@@ -66,4 +69,11 @@ public class User extends Abstract implements Serializable {
 		this.slogan = slogan;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 }

@@ -131,3 +131,20 @@ jQuery.extend({JSONstringConvert:function(string){
 	}
 	return string;
 }});
+
+function allSubmit(fun){
+//	j$.forbidALL();
+	try{
+		var temResult = fun();
+		if(temResult){
+			console.log("the result of temFunction()："+temResult);
+//			j$.forbidALL();
+		}else{
+//			j$.allowAll();
+		}
+		return temResult;
+	}catch(e){
+		console.log(e)
+		return false;
+	}
+}

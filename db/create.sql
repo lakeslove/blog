@@ -1,13 +1,14 @@
 #mysql数据库
-DROP DATABASE IF EXISTS bolg;
-create database bolg DEFAULT CHARACTER SET utf8 ;
-use bolg;
+DROP DATABASE IF EXISTS blog;
+create database blog DEFAULT CHARACTER SET utf8 ;
+use blog;
 
 DROP TABLE IF EXISTS user;
 CREATE TABLE user(
 id BIGINT PRIMARY KEY AUTO_INCREMENT,
 name VARCHAR(20) NOT NULL,
 password VARCHAR(20) NOT NULL,
+`email` varchar(256) UNIQUE NOT NULL,
 slogan VARCHAR(200),
 create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 update_date TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP
@@ -25,7 +26,6 @@ CREATE TABLE `user_message` (
   `user_id` bigint(20) DEFAULT NULL,
   `user_type_id` int(11) DEFAULT NULL,
   `interest` varchar(20) DEFAULT NULL,
-  `email` varchar(256) DEFAULT NULL,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `update_date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
@@ -50,7 +50,7 @@ FOREIGN KEY(user_id) REFERENCES user(id) ON DELETE CASCADE
 DROP TABLE IF EXISTS register;
 CREATE TABLE `register` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `email` varchar(206) NOT NULL,
+  `email` varchar(206) UNIQUE NOT NULL,
   `verification_code` varchar(4) NOT NULL,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
