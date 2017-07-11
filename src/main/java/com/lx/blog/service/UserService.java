@@ -1,6 +1,7 @@
 package com.lx.blog.service;
 
 import java.util.List;
+
 import com.lx.blog.model.User;
 import com.lx.blog.util.PageData;
 
@@ -13,4 +14,6 @@ public interface UserService extends Service<User, Long>{
 	List<User> findUsers(String userName,int start,int limit);
 	
 	User loginValidate(User user);
+	
+	String getUserDetail(User user);
 }

@@ -15,9 +15,9 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="Keywords" content="" />
-<script src="javascript/jquery/jquery-3.1.1.min.js"></script>
-<script src="javascript/main.js"></script>
-<link href="style/main.css" type="text/css" rel="stylesheet" />
+<script src="${pageContext.request.contextPath}/javascript/jquery/jquery-3.1.1.min.js"></script>
+<script src="${pageContext.request.contextPath}/javascript/main.js"></script>
+<link href="${pageContext.request.contextPath}/style/main.css" type="text/css" rel="stylesheet" />
 <c:if test="${!empty css}">
 <link href="<tiles:getAsString name="css"/>" type="text/css" rel="stylesheet" />
 </c:if>

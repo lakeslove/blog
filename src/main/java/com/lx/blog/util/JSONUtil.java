@@ -30,11 +30,28 @@ public class JSONUtil {
 		ObjectMapper objm = new ObjectMapper();
 		return objm.writeValueAsBytes(data);
 	}
+	
+	/**
+	 *  没有进行特殊字符转换，执行效率高，不安全
+	 * @param data
+	 * @return
+	 * @throws JsonGenerationException
+	 * @throws JsonMappingException
+	 * @throws IOException
+	 */
 	public static String writeValueAsString(Object data) throws JsonGenerationException, JsonMappingException, IOException {
 		ObjectMapper objm = new ObjectMapper();
 		return objm.writeValueAsString(data);
 	}
 	
+	/**
+	 * 进行了特殊字符转换，执行效率低一些，安全
+	 * @param data
+	 * @return
+	 * @throws JsonGenerationException
+	 * @throws JsonMappingException
+	 * @throws IOException
+	 */
 	public static String getEscapeJSONString(Object data) throws JsonGenerationException, JsonMappingException, IOException {
 		ObjectMapper objm = new ObjectMapper();
 		String JSONString = objm.writeValueAsString(data);

@@ -31,7 +31,9 @@
 		<!-- <mapper resource="com/lx/blog/dao/Impl/UserDaoImpl.xml"/> -->
 		<!-- <package name="com.lx.blog.dao.Impl"/> -->
 		<mapper resource="com/lx/blog/dao/Impl/UserDaoMapper.xml"/>
+		<mapper resource="com/lx/blog/dao/Impl/UserMessageDaoMapper.xml"/>
 		<mapper resource="com/lx/blog/dao/Impl/RegisterDaoMapper.xml"/>
+		<mapper resource="com/lx/blog/dao/Impl/EssayDaoMapper.xml"/>
 	</mappers>
 	
 </configuration>

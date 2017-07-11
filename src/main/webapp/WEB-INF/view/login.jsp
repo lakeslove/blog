@@ -23,9 +23,7 @@ function checkParameters(){
 <form:form id="loginForm" modelAttribute="user" action="login.htm" method="post" onsubmit="return allSubmit(checkParameters);">
 <table>
 <tr><td colspan="2"><span id="errorText" class="errorText">
-<c:if test="${!empty validateError } ">
-<c:out value="${validateError}"/>
-</c:if>&nbsp;
+${validateError}
 </span></td></tr>
 <tr><td>邮箱</td><td><form:input id="email" type="text" path="email" placeholder="邮箱"/></td></tr>
 <tr><td>密码</td><td><form:input id="password" type="password" path="password" placeholder="最长8位"/></td></tr>

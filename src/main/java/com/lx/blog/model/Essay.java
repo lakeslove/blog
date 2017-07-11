@@ -8,11 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "essay")
-public class essay extends Abstract implements Serializable {
+public class Essay extends Abstract implements Serializable {
 	/**
 	 * 
 	 */
@@ -29,7 +28,39 @@ public class essay extends Abstract implements Serializable {
 	@Column(name = "title")
 	private String title;
 	
-	@Column(name = "content")
-	private String content;
+	@Column(name = "flag")
+	private Integer flag;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public Integer getFlag() {
+		return flag;
+	}
+
+	public void setFlag(Integer flag) {
+		this.flag = flag;
+	}
 	
 }

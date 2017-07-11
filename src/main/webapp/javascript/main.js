@@ -30,6 +30,12 @@ jQuery.extend({changeSelectedNav:function(id){
 	$("#"+id).css("color","white");
 }});
 
+jQuery.extend({timeStampToDate:function(timeStamp){
+	var newdate = new Date();
+	newdate.setTime(timeStamp);
+	return newdate.toLocaleDateString();
+}});
+
 //对ajax的封装
 jQuery.extend({AJAX:function(settings){
 	if (settings.url.indexOf('?') != -1) {
@@ -116,6 +122,7 @@ jQuery.extend({JSONobjectConvert:function(o){
 	}
 	return o;
 }});
+
 /**
  * 对一个JSON字符串进行转义
  */

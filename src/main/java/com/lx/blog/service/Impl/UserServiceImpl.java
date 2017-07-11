@@ -63,4 +63,10 @@ public class UserServiceImpl extends AbstractService<User, Long>implements UserS
 		User wholeUser = userDao.getUserByEmailAndPassword(user);
 		return wholeUser;
 	}
+
+	@Override
+	public String getUserDetail(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
