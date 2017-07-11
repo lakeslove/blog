@@ -52,8 +52,13 @@ public class PersonalDataController extends AbstractController{
 	
 	@RequestMapping(value = { "setting.htm" },method = RequestMethod.POST)
 	public String settingPost(Model model,User user) {
-		userService.updateUser(user);
-		getSession().setAttribute(SESSION_LOGIN_USER, user);
+		User oldUser = (User)getSession().getAttribute(SESSION_LOGIN_USER);
+		oldUser.setName(user.getName());
+		oldUser.setPassword(user.getPassword());
+		oldUser.setSlogan(user.getSlogan());
+		userService.updateUser(oldUser);
+//		因为oldUser为引用，所以下面这句可以不写
+//		getSession().setAttribute(SESSION_LOGIN_USER, oldUser);
 		return "tiles.view.body.mypage";
 	}
 

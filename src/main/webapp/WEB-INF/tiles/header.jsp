@@ -80,7 +80,11 @@
     <div id = "login"><a href="login.htm">登录</a>&nbsp;&nbsp;&nbsp;<a href="register.htm">注册</a></div>
     </c:if>
     <c:if test="${not empty USER_NAME}">
-    <div id = "login"><a href="manager/mypage.htm">${USER_NAME}&nbsp;的博客</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="logout.htm">退出</a></div>
+    <div id = "login">
+    	<a href="${pageContext.request.contextPath}/manager/mypage.htm">${USER_NAME}&nbsp;的博客</a>
+    	&nbsp;&nbsp;&nbsp;&nbsp;
+    	<a href="${pageContext.request.contextPath}/logout.htm">退出</a>
+    	</div>
     </c:if>
 </div>
 <div class="container navigation">
