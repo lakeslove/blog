@@ -32,22 +32,16 @@
 	</select>
 	
 	<select id="getUser" parameterType="long" resultType="user">
-		select * from t_user id=#{id}
+		select * from user where id=#{id}
 	</select>
 
-	<delete id="deleteUser" parameterType="long">
-		delete from t_user where id = #{id}
-	</delete>
 
 	<update id="updateUser">
-		update t_user
+		update user
 		<set>
-			<if test="userName != null">user_name = #{userName},</if>
-			<if test="birthday != null">birthday = #{birthday},</if>
-			<if test="sex != null">sex = #{sex},</if>
-			<if test="mobile != null">mobile = #{mobile},</if>
-			<if test="email != null">email = #{email},</if>
-			<if test="note != null">note = #{note},</if>
+			<if test="name != null">name = #{name},</if>
+			<if test="password != null">password = #{password},</if>
+			<if test="slogan != null">slogan = #{slogan},</if>
 		</set>
 		where id=#{id}
 	</update>

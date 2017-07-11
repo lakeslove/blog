@@ -111,8 +111,8 @@ function trColor(){
 <tr><td colspan="2" class="tdTextCenter">个人主页</td></tr>
 <tr><td class="firstTd">昵称</td><td>${user.getName()}</td></tr>
 <tr><td>标语</td><td>${user.getSlogan()}</td></tr>
-<tr><td>兴趣</td><td>${userMessage.getInterest()}</td></tr>
-<tr><td colspan="2"><a href="">设置</a></td></tr>
+<%-- <tr><td>兴趣</td><td>${userMessage.getInterest()}</td></tr> --%>
+<tr><td colspan="2"><a href="setting.htm">设置</a></td></tr>
 </table>
 </div>
 <div class="col personalBlogList">

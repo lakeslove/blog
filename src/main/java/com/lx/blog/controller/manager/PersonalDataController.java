@@ -42,5 +42,19 @@ public class PersonalDataController extends AbstractController{
 		model.addAttribute("userMessage", userMessage);
 		return "tiles.view.body.mypage";
 	}
+	
+	@RequestMapping(value = { "setting.htm" },method = RequestMethod.GET)
+	public String settingGet(Model model) {
+		User user = (User)getSession().getAttribute(SESSION_LOGIN_USER);
+		model.addAttribute("user", user);
+		return "tiles.view.body.setting";
+	}
+	
+	@RequestMapping(value = { "setting.htm" },method = RequestMethod.POST)
+	public String settingPost(Model model,User user) {
+		userService.updateUser(user);
+		getSession().setAttribute(SESSION_LOGIN_USER, user);
+		return "tiles.view.body.mypage";
+	}
 
 }
