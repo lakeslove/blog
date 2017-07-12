@@ -17,6 +17,8 @@ import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import com.lx.blog.model.User;
+
 public class AbstractController {
 	private static final Logger log = LoggerFactory.getLogger(AbstractController.class);
 	
@@ -56,6 +58,16 @@ public class AbstractController {
 	protected HttpSession getSession() {
 		HttpServletRequest request = getRequest();
 		return request.getSession();
+	}
+	
+	protected User getLoginUser() {
+		User user = (User)getSession().getAttribute(SESSION_LOGIN_USER);
+		return user;
+	}
+	
+	protected Long getLoginUserId() {
+		User user = getLoginUser();
+		return user.getId();
 	}
 	
 	

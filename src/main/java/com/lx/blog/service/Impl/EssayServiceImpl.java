@@ -1,18 +1,17 @@
 package com.lx.blog.service.Impl;
 
-import java.io.IOException;
 import java.util.List;
 
 import org.apache.ibatis.session.RowBounds;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.codehaus.jackson.JsonGenerationException;
-import org.codehaus.jackson.map.JsonMappingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.lx.blog.dao.EssayContentDao;
 import com.lx.blog.dao.EssayDao;
 import com.lx.blog.model.Essay;
+import com.lx.blog.model.EssayContent;
 import com.lx.blog.service.EssayService;
 import com.lx.blog.util.JSONUtil;
 import com.lx.blog.util.PageData;
@@ -26,6 +25,9 @@ public class EssayServiceImpl extends AbstractService<Essay, Long>implements Ess
 	@Autowired
 	private EssayDao essayDao;
 
+	@Autowired
+	private EssayContentDao essayContentDao;
+
 	@Override
 	public String getEssayList(Long userId,Integer currentPage) throws Exception {
 		Long sizeOfAll = essayDao.getEssayCount(userId);
@@ -37,4 +39,31 @@ public class EssayServiceImpl extends AbstractService<Essay, Long>implements Ess
 		}
 		return JSONUtil.getEscapeJSONString(pageData);
 	}
+
+	@Override
+	public Essay getEssayByUserIdAndId(Long userId, Long essayId) {
+		Essay essay = essayDao.getEssayByUserIdAndId(userId, essayId);
+		return essay;
+	}
+
+	@Override
+	public Long saveEssay(Essay essay, String content) {
+		Long essayId = essay.getId();
+		EssayContent essayContent = new EssayContent();
+		essayContent.setContent(content);
+		if(essayId == null){
+			essayDao.saveEssay(essay);
+			essayContent.setEssayId(essay.getId());
+			essayContentDao.saveEssayContent(essayContent);
+		}else{
+			essayDao.updateEssay(essay);
+			essayContent.setEssayId(essay.getId());
+			essayContentDao.updateEssayContent(essayContent);
+		}
+		
+		return null;
+	}
+	
+	
+	
 }

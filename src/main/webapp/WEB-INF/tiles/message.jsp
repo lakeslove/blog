@@ -9,7 +9,8 @@
 var messageError={
 		"error.email.format" : "<fmt:message key='error.email.format'/>",
 		"error.email.has.existed" : "<fmt:message key='error.email.has.existed'/>",
-		"error.passwrod.is.null" : "<fmt:message key='error.passwrod.is.null'/>"
+		"error.passwrod.is.null" : "<fmt:message key='error.passwrod.is.null'/>",
+		"error.input.flag.error" : "<fmt:message key='error.input.flag.error'/>"
 };
 
 var messageGeneric={

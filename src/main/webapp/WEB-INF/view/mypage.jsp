@@ -118,7 +118,7 @@ function trColor(){
 <div class="col personalBlogList">
 <table>
 <tr><td colspan="6" class="tdTextCenter">博客列表</td></tr>
-<tr><td colspan="2" >写博客</td></tr>
+<tr><td colspan="2" ><a href="newblog.htm">写博客</a></td></tr>
 <tr id="trBlogList">
 <td style="width:10%">No.</td>
 <td style="width:35%">博客</td>

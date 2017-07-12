@@ -60,12 +60,11 @@
 		<put-attribute name="body" value="/WEB-INF/view/testError.jsp" />
 	</definition>
 	
-	<!-- datas开始 -->
-	<definition name="tiles.view.body.userList" extends="tiles.template.public">
+	<definition name="tiles.view.body.blog" extends="tiles.template.public">
 		<put-attribute name="title" value="view.top.title" />
 		<put-attribute name="css" value="" />
 		<put-attribute name="js" value="" />
-		<put-attribute name="body" value="/WEB-INF/view/datas/crudRD.jsp" />
+		<put-attribute name="body" value="/WEB-INF/view/blog.jsp" />
 	</definition>
 	
 	<definition name="tiles.view.body.userMessage" extends="tiles.template.public">
@@ -74,7 +73,6 @@
 		<put-attribute name="js" value="" />
 		<put-attribute name="body" value="/WEB-INF/view/datas/crudCU.jsp" />
 	</definition>
-	<!-- datas结束 -->
 	
 	<!-- files开始 -->
 	
