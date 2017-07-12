@@ -28,4 +28,7 @@
 		</where>
 	</update>
 	
+	<delete id="deleteEssayById" parameterType="long">
+		delete from essay where id = #{id}
+	</delete>
 </mapper>

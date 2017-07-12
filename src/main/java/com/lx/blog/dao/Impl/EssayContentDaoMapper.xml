@@ -18,4 +18,8 @@
 		essay_id = #{essayId}
 		</where>
 	</update>
+	
+	<delete id="deleteEssayContentByEssayId" parameterType="long">
+		delete from essay_content where  essay_id = #{essayId}
+	</delete>
 </mapper>

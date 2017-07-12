@@ -15,4 +15,5 @@ public interface EssayDao {
 	Essay getEssayByUserIdAndId(@Param("userId")Long userId,@Param("id")Long id);
 	Long saveEssay(Essay essay);
 	Long updateEssay(Essay essay);
+	void deleteEssayById(Long id);
 }

@@ -53,17 +53,19 @@ public class EssayServiceImpl extends AbstractService<Essay, Long>implements Ess
 		essayContent.setContent(content);
 		if(essayId == null){
 			essayDao.saveEssay(essay);
-			essayContent.setEssayId(essay.getId());
+			essayContent.setEssayId(essayId);
 			essayContentDao.saveEssayContent(essayContent);
 		}else{
 			essayDao.updateEssay(essay);
-			essayContent.setEssayId(essay.getId());
+			essayContent.setEssayId(essayId);
 			essayContentDao.updateEssayContent(essayContent);
 		}
-		
-		return null;
+		return essayId;
 	}
-	
-	
-	
+
+	@Override
+	public void deleteEssay(Long id) {
+		essayDao.deleteEssayById(id);
+		essayContentDao.deleteEssayContentByEssayId(id);
+	}
 }

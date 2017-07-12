@@ -53,7 +53,7 @@ public class MyEssayController extends AbstractController{
 	public String editBlog(Model model,Long id) {
 		Essay essay =  essayService.getEssayByUserIdAndId(getLoginUserId(), id);
 		if(essay==null){
-			return "redirect:testError";
+			return "redirect:../testError";
 		}
 		model.addAttribute("essay", essay);
 		EssayContent essayContent = essayContentService.getEssayContentByEssayId(id);
@@ -64,10 +64,28 @@ public class MyEssayController extends AbstractController{
 	
 	@RequestMapping(value = { "saveblog.htm" },method = RequestMethod.POST)
 	public String saveBlog(Essay essay,String content) {
+		if(essay.getId()!=null){
+			Essay tmpEssay =  essayService.getEssayByUserIdAndId(getLoginUserId(), essay.getId());
+			if(tmpEssay==null){
+				return "redirect:../testError.htm";
+			}
+		}
 		essay.setUserId(getLoginUserId());
 		essayService.saveEssay(essay, content);
 		return "redirect:mypage.htm";
 	}
+	
+	@RequestMapping(value = { "deleteblog.htm" },method = RequestMethod.GET)
+	public String deleteBlog(Model model,Long id) {
+		Essay tmpEssay =  essayService.getEssayByUserIdAndId(getLoginUserId(), id);
+		if(tmpEssay==null){
+			return "redirect:../testError.htm";
+		}
+		essayService.deleteEssay(id);
+		return "redirect:mypage.htm";
+	}
+	
+	
 	
 	public List<SelectUtil.Option> getSelect(){
 		String[] labelAndValueArray = getI18nMessage("essay.flag.label.and.value").split(",");

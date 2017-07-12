@@ -9,4 +9,5 @@ public interface EssayContentDao {
 	EssayContent getEssayContentByEssayId(Long essayId);
 	void saveEssayContent(EssayContent essayContent);
 	void updateEssayContent(EssayContent essayContent);
+	void deleteEssayContentByEssayId(Long essayId);
 }
