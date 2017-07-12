@@ -45,13 +45,11 @@ public class MyEssayController extends AbstractController{
 		Essay essay = new Essay();
 		essay.setFlag(3);
 		model.addAttribute("essay", essay);
-		String[] labelAndValueArray = getI18nMessage("essay.flag.label.and.value").split(",");
-		List<SelectUtil.Option> select = SelectUtil.getList(labelAndValueArray);
-		model.addAttribute("select", select);
+		model.addAttribute("select", getSelect());
 		return "tiles.view.body.blog";
 	}
 	
-	@RequestMapping(value = { "editblog.htm" },method = RequestMethod.POST)
+	@RequestMapping(value = { "editblog.htm" },method = RequestMethod.GET)
 	public String editBlog(Model model,Long id) {
 		Essay essay =  essayService.getEssayByUserIdAndId(getLoginUserId(), id);
 		if(essay==null){
@@ -59,8 +57,9 @@ public class MyEssayController extends AbstractController{
 		}
 		model.addAttribute("essay", essay);
 		EssayContent essayContent = essayContentService.getEssayContentByEssayId(id);
-		model.addAttribute("essayContent", essayContent);
-		return "tiles.view.body.mypage";
+		model.addAttribute("content", essayContent.getContent());
+		model.addAttribute("select", getSelect());
+		return "tiles.view.body.blog";
 	}
 	
 	@RequestMapping(value = { "saveblog.htm" },method = RequestMethod.POST)
@@ -70,5 +69,10 @@ public class MyEssayController extends AbstractController{
 		return "redirect:mypage.htm";
 	}
 	
+	public List<SelectUtil.Option> getSelect(){
+		String[] labelAndValueArray = getI18nMessage("essay.flag.label.and.value").split(",");
+		List<SelectUtil.Option> select = SelectUtil.getList(labelAndValueArray);
+		return select;
+	}
 	
 }

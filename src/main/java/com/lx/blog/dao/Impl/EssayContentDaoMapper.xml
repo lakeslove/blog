@@ -12,7 +12,7 @@
 	<update id="updateEssayContent" parameterType="essayContent">
 		update essay_content
 		<set>
-			<if test="title != null">content = #{content}</if>
+			<if test="content != null">content = #{content}</if>
 		</set>
 		<where>
 		essay_id = #{essayId}

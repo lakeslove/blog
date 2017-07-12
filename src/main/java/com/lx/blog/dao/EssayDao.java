@@ -12,7 +12,7 @@ import com.lx.blog.model.Essay;
 public interface EssayDao {
 	List<Essay> getEssayList(Long userId,RowBounds rowBounds);
 	Long getEssayCount(Long userId);
-	Essay getEssayByUserIdAndId(@Param("userId")Long userId,@Param("userId")Long essayId);
+	Essay getEssayByUserIdAndId(@Param("userId")Long userId,@Param("id")Long id);
 	Long saveEssay(Essay essay);
 	Long updateEssay(Essay essay);
 }

@@ -42,7 +42,7 @@ function showDatasInTable(data){
 				"<td>"+resultList[i].title+"</td>"+
 				"<td>"+resultList[i].flag+"</td>"+
 				"<td>"+$.timeStampToDate(resultList[i].createDate)+"</td>"+
-				"<td>"+"<a href='editUser.htm?userId="+resultList[i].id+"'>编辑</a>"+"</td>"+
+				"<td>"+"<a href='editblog.htm?id="+resultList[i].id+"'>编辑</a>"+"</td>"+
 				"<td>"+"<a href='deleteUser.htm?userId="+resultList[i].id+"'>删除</a>"+"</td>"+
 				"</tr>"
 				insertTds = insertTds+teminsertTds;

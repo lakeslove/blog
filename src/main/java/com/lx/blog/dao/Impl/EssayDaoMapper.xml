@@ -9,7 +9,7 @@
 	</select>
 	
 	<select id="getEssayByUserIdAndId" resultType="essay">
-		select * from essay where user_id = #{userId，jdbcType=BIGINT} and id = #{essayId，jdbcType=BIGINT} limit 1;
+		select * from essay where user_id = #{userId,jdbcType=BIGINT} and id = #{id,jdbcType=BIGINT} limit 1;
 	</select>
 	
 	<insert id="saveEssay" useGeneratedKeys="true" keyProperty="id" parameterType="essay">

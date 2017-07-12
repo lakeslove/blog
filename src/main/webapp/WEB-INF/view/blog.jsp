@@ -28,6 +28,7 @@ min-height:300px;
 
 <div class="blocks">
 <form:form id="saveBlog" modelAttribute="essay" action="saveblog.htm" method="post" onsubmit="return allSubmit(checkParameters);">
+<form:input path="id" type="title" cssClass="hidden"/>
 <table>
 <tr><td colspan="2"><span id="errorText" class="errorText">
 ${errorText}
@@ -40,10 +41,10 @@ ${errorText}
 </tr>
 <tr>
 <td colspan="2">
-<textarea name="content" rows="" cols="" class="blogContent"></textarea>
+<textarea name="content" rows="" cols="" class="blogContent">${content}</textarea>
 </td>
 </tr>
-<tr><td colspan="2"><input type="submit" value="登录"></td></tr>
+<tr><td colspan="2"><input type="submit" value="保存"></td></tr>
 </table>
 </form:form>
 </div>
