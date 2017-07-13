@@ -10,10 +10,13 @@ import com.lx.blog.model.Essay;
 
 @Repository
 public interface EssayDao {
-	List<Essay> getEssayList(Long userId,RowBounds rowBounds);
-	Long getEssayCount(Long userId);
+	Long getEssayCountByUserId(Long userId);
+	List<Essay> getEssayListByUserId(Long userId,RowBounds rowBounds);
+	Long getEssayCountByFlag(Integer flag);
+	List<Essay> getEssayListByFlag(Integer flag,RowBounds rowBounds);
 	Essay getEssayByUserIdAndId(@Param("userId")Long userId,@Param("id")Long id);
 	Long saveEssay(Essay essay);
 	Long updateEssay(Essay essay);
 	void deleteEssayById(Long id);
+	Essay getEssayById(Long id);
 }

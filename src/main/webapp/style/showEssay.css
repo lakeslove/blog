@@ -1,0 +1,78 @@
+@CHARSET "UTF-8";
+
+#ies_public_content_div {
+	height: inherit;
+}
+
+.saveMessage {
+	position: relative;
+	width: 700px;
+	height: 480px;
+}
+
+.title_input {
+	position: relative;
+	/* width: 952px; */
+	height: 64px;
+	font-size: 24px;
+	text-align: center;
+	margin: 0px auto;
+	/* background-color: #E6E6E6; */
+	/* padding: 10px; */
+	/* opacity: 0.89; */
+	/* border-radius: 42px; */
+	font-weight: bold;
+	border-bottom: 1px dashed #d3d3d3;
+	/* background: url(../../images/common/solidpaper.jpg) no-repeat;
+	background-size: 1024px 80px; */
+	margin-bottom:10px;
+}
+
+.nowDate_div {
+	margin-top: 5px;
+	height: 20px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 14px;
+	color: #999;
+	font-weight: normal;
+}
+
+.content_center {
+	position: relative;
+	width: 704px;
+	padding: 40px;
+	font-size: 15px;
+    line-height: 20px;
+	margin: 0px auto 20px;
+	word-wrap: break-word;
+	word-break: normal;
+	opacity: 0.85;
+	background-color:white;
+	/* background-color: rgb(245, 245, 245); */
+	min-height: 580px;
+}
+
+#contener_havedFile {
+	position: relative;
+	margin-top:30px;
+	/* 	border:solid 1px; */
+	line-height: 20px;
+	padding:15px;
+	font-size: 12px;
+	background-color: rgba(255,255,255,1);
+	
+}
+
+
+.submit_btn {
+	position: relative;
+	float: left;
+	left: 100px;
+	top: 50px;
+	width: 84px;
+	height: 42px;
+	margin: 0 auto;
+	border-radius: 5px;
+	background-color: pink;
+}

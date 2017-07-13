@@ -43,8 +43,9 @@ function checkParameters(){
 	return true;
 }
 </script>
-<div class="blocks_title">新用户注册</div>
 <div class="blocks">
+<div class="content_center">
+<div class="blocks_title textCentet">新用户注册</div>
 <form:form id="registerForm" modelAttribute="user" action="register.htm" method="post" onsubmit="return allSubmit(checkParameters);">
 <table>
 <c:if test="${!empty validateError } ">
@@ -57,4 +58,5 @@ function checkParameters(){
 <tr><td colspan="2"><input type="submit" value="提交"></td></tr>
 </table>
 </form:form>
+</div>
 </div>

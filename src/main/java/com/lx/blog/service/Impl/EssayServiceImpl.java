@@ -29,17 +29,29 @@ public class EssayServiceImpl extends AbstractService<Essay, Long>implements Ess
 	private EssayContentDao essayContentDao;
 
 	@Override
-	public String getEssayList(Long userId,Integer currentPage) throws Exception {
-		Long sizeOfAll = essayDao.getEssayCount(userId);
+	public String getEssayListByUserId(Long userId,Integer currentPage) throws Exception {
+		Long sizeOfAll = essayDao.getEssayCountByUserId(userId);
 		PageData<Essay> pageData = new PageData<Essay>(currentPage);
 		if(sizeOfAll>0){
 			RowBounds rowBounds = new RowBounds(pageData.getOffset(currentPage),pageData.getPerPageNum());
-			List<Essay> essayList = essayDao.getEssayList(userId,rowBounds);
+			List<Essay> essayList = essayDao.getEssayListByUserId(userId,rowBounds);
 			pageData.setData(sizeOfAll, essayList);
 		}
 		return JSONUtil.getEscapeJSONString(pageData);
 	}
 
+	@Override
+	public String getEssayListByFlag(Integer flag, Integer currentPage) throws Exception {
+		Long sizeOfAll = essayDao.getEssayCountByFlag(flag);
+		PageData<Essay> pageData = new PageData<Essay>(currentPage);
+		if(sizeOfAll>0){
+			RowBounds rowBounds = new RowBounds(pageData.getOffset(currentPage),pageData.getPerPageNum());
+			List<Essay> essayList = essayDao.getEssayListByFlag(flag,rowBounds);
+			pageData.setData(sizeOfAll, essayList);
+		}
+		return JSONUtil.getEscapeJSONString(pageData);
+	}
+	
 	@Override
 	public Essay getEssayByUserIdAndId(Long userId, Long essayId) {
 		Essay essay = essayDao.getEssayByUserIdAndId(userId, essayId);
@@ -53,7 +65,7 @@ public class EssayServiceImpl extends AbstractService<Essay, Long>implements Ess
 		essayContent.setContent(content);
 		if(essayId == null){
 			essayDao.saveEssay(essay);
-			essayContent.setEssayId(essayId);
+			essayContent.setEssayId(essay.getId());
 			essayContentDao.saveEssayContent(essayContent);
 		}else{
 			essayDao.updateEssay(essay);
@@ -68,4 +80,13 @@ public class EssayServiceImpl extends AbstractService<Essay, Long>implements Ess
 		essayDao.deleteEssayById(id);
 		essayContentDao.deleteEssayContentByEssayId(id);
 	}
+
+	@Override
+	public Essay getEssayAndContent(Long id) {
+		Essay essay = essayDao.getEssayById(id);
+		EssayContent essayContent = essayContentDao.getEssayContentByEssayId(id);
+		essay.setEssayContent(essayContent);
+		return essay;
+	}
+
 }

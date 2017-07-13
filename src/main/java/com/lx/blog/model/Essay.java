@@ -30,6 +30,16 @@ public class Essay extends Abstract implements Serializable {
 	
 	@Column(name = "flag")
 	private Integer flag;
+	
+	private EssayContent essayContent;
+
+	public EssayContent getEssayContent() {
+		return essayContent;
+	}
+
+	public void setEssayContent(EssayContent essayContent) {
+		this.essayContent = essayContent;
+	}
 
 	public Long getId() {
 		return id;

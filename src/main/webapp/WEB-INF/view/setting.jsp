@@ -5,7 +5,7 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<script type="text/javascript" src="javascript/verification.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/javascript/verification.js"></script>
 <script>
 $(document).ready(function() {
 	$("#getVerificationCode").click(function(){
@@ -48,10 +48,13 @@ function checkParameters(){
 	return true;
 }
 </script>
-<div class="blocks_title">个人信息设定</div>
 <div class="blocks">
+<div class="content_center">
+<div class="blocks_title textCentet">个人信息设定</div>
+<br>
+<br>
 <form:form id="settingForm" modelAttribute="user" action="setting.htm" method="post" onsubmit="return allSubmit(checkParameters);">
-<table>
+<table class="table-margin-left">
 <c:if test="${!empty validateError } ">
 <tr><td colspan="2"><span class="errorText"><c:out value="${validateError}"/></span></td></tr>
 </c:if>
@@ -61,4 +64,5 @@ function checkParameters(){
 <tr><td colspan="2"><input type="submit" value="提交"></td></tr>
 </table>
 </form:form>
+</div>
 </div>

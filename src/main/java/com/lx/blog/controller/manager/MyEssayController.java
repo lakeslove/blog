@@ -36,7 +36,7 @@ public class MyEssayController extends AbstractController{
 	@ResponseBody
 	@RequestMapping(value = { "myEssayList.htm" },method = RequestMethod.GET,produces = "text/html;charset=UTF-8")
 	public String myEssayList(Model model,Integer currentPage) throws Exception {
-		String essasyListJson = essayService.getEssayList(getLoginUserId(),currentPage);
+		String essasyListJson = essayService.getEssayListByUserId(getLoginUserId(),currentPage);
 		return essasyListJson;
 	}
 	

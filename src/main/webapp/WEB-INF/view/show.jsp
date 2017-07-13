@@ -5,6 +5,7 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<link href="${pageContext.request.contextPath}/style/showEssay.css" type="text/css" rel="stylesheet"/>
 <script type="text/javascript" src="${pageContext.request.contextPath}/javascript/verification.js"></script>
 <script>
 $(document).ready(function() {
@@ -27,26 +28,13 @@ min-height:300px;
 </style>
 
 <div class="blocks">
+<br>
+
+<br>
 <div class="content_center">
-<form:form id="saveBlog" modelAttribute="essay" action="saveblog.htm" method="post" onsubmit="return allSubmit(checkParameters);">
-<form:input path="id" type="title" cssClass="hidden"/>
-<table>
-<tr><td colspan="2"><span id="errorText" class="errorText">
-${errorText}
-</span></td></tr>
-<tr><td>标题</td><td><form:input id="title" type="text" path="title" placeholder="标题"/></td></tr>
-<tr>
-<td>类别</td>
-<td><form:select id="flag" path="flag" items="${select}" itemLabel="label"  
-        itemValue="value"></form:select> </td>
-</tr>
-<tr>
-<td colspan="2">
-<textarea name="content" rows="" cols="" class="blogContent">${content}</textarea>
-</td>
-</tr>
-<tr><td colspan="2"><input type="submit" value="保存"></td></tr>
-</table>
-</form:form>
+	<div class="title_input"><c:out value="${essay.getTitle()}"/>
+		<div class="nowDate_div">时间: <fmt:formatDate value="${essay.getCreateDate()}" type="date" pattern="yyyy/MM/dd"/></div>
+	</div>
+	<c:out value="${essay.getEssayContent().getContent()}"/>
 </div>
 </div>

@@ -91,11 +91,11 @@
 	<div class="row">
 		<div class="col nav">
 			<ul id="index-nav">
-				<li><a href="index.htm" id="nav-index-id" title="首页" class="current">首页</a></li>
-				<li><a href="prose.htm" id="nav-prose-id" title="散文">散文</a></li>
-				<li><a href="poem.htm" id="nav-poem-id" title="诗歌">诗歌</a></li>
-				<li><a href="novel.htm" id="nav-novel-id" title="微小说">微小说</a></li>
-				<li><a href="notes.htm" id="nav-notes-id" title="杂记">杂记</a></li>
+				<li><a href="${pageContext.request.contextPath}/index.htm" id="nav-index-id" title="首页" class="current">首页</a></li>
+				<li><a href="${pageContext.request.contextPath}/prose.htm" id="nav-prose-id" title="散文">散文</a></li>
+				<li><a href="${pageContext.request.contextPath}/poem.htm" id="nav-poem-id" title="诗歌">诗歌</a></li>
+				<li><a href="${pageContext.request.contextPath}/novel.htm" id="nav-novel-id" title="微小说">微小说</a></li>
+				<li><a href="${pageContext.request.contextPath}/notes.htm" id="nav-notes-id" title="随笔">杂记</a></li>
 			</ul>
 		</div>
 	</div>

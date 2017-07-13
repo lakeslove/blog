@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lx.blog.dao.EssayDao">
-	<select id="getEssayList" parameterType="long" resultType="essay">
-		select * from essay where user_id = #{userId}
+	<select id="getEssayListByUserId" parameterType="long" resultType="essay">
+		select * from essay where user_id = #{userId} order by id desc;
 	</select>
-	<select id="getEssayCount" parameterType="long" resultType="long">
+	<select id="getEssayCountByUserId" parameterType="long" resultType="long">
 		select count(*) from essay where user_id = #{userId}
+	</select>
+	
+	<select id="getEssayListByFlag" parameterType="int" resultType="essay">
+		select * from essay where flag = #{flag}
+	</select>
+	
+	<select id="getEssayCountByFlag" parameterType="int" resultType="long">
+		select count(*) from essay where flag = #{flag}
+	</select>
+	
+	<select id="getEssayById" resultType="essay">
+		select * from essay where id = #{id,jdbcType=BIGINT} limit 1;
 	</select>
 	
 	<select id="getEssayByUserIdAndId" resultType="essay">

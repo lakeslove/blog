@@ -8,14 +8,15 @@
 <script src="${pageContext.request.contextPath}/javascript/pageUtils.js"></script>
 <script>
 $(document).ready(function() {
-	myEssayList(1);
+	$.changeSelectedNav("nav-notes-id");
+	essayList(1);
 	
 });
-function myEssayList(page) {
+function essayList(page) {
 	var searchFormData = $('#searchUsersForm').serialize();
-	var tempData = '&currentPage=' + page;
+	var tempData = '&currentPage=' + page + '&flag=' + 3;
 	$.AJAX({
-		url :  "myEssayList.htm",
+		url :  "essaylist.htm",
 		type : "get",
 		data : tempData,
 		dataType: "json",
@@ -39,21 +40,19 @@ function showDatasInTable(data){
 			var teminsertTds =
 				"<tr class='list-content-datas'>"+
 				"<td>"+(i+startNo)+"</td>"+
-				"<td>"+"<a target='_blank' href='../show.htm?id="+resultList[i].id+"'>"+resultList[i].title+"</a>"+"</td>"+
+				"<td>"+"<a target='_blank' href='show.htm?id="+resultList[i].id+"'>"+resultList[i].title+"</a>"+"</td>"+
 				"<td>"+$.flagToLabel(resultList[i].flag)+"</td>"+
 				"<td>"+$.timeStampToDate(resultList[i].createDate)+"</td>"+
-				"<td>"+"<a href='editblog.htm?id="+resultList[i].id+"'>编辑</a>"+"</td>"+
-				"<td>"+"<a href='deleteblog.htm?id="+resultList[i].id+"'>删除</a>"+"</td>"+
 				"</tr>"
 				insertTds = insertTds+teminsertTds;
 		}
-		$("#myEssayListTbody").html(insertTds);
+		$("#essayListTbody").html(insertTds);
 		if(sumPage>1){
 			pageUtils.pageHelper({
 				nowPage:page,
 		        numPerPage:perPageNum,
 		        sizeOfAll:sizeOfAll,
-		        methodName:"myEssayList",
+		        methodName:"essayList",
 		        success:function(data){
 		        	$("#resultPages").html(data.pagesString);
 		 		   	$("#resultNumbers").html(data.numString);
@@ -70,7 +69,7 @@ function turnPage(page){
 	myEssayList(page);
 }
 function trColor(){
-	$("#myEssayListTbody tr:odd").css("background","#e1eff1");
+	$("#essayListTbody tr:odd").css("background","#e1eff1");
 }
 </script>
 <style>
@@ -107,27 +106,15 @@ function trColor(){
 }
 </style>
 <div class="blocks">
-<div class="col leftBlock">
-<table id="personalData">
-<tr><td colspan="2" class="tdTextCenter">个人主页</td></tr>
-<tr><td class="firstTd">昵称</td><td>${user.getName()}</td></tr>
-<tr><td>标语</td><td>${user.getSlogan()}</td></tr>
-<%-- <tr><td>兴趣</td><td>${userMessage.getInterest()}</td></tr> --%>
-<tr><td colspan="2"><a href="setting.htm">设置</a></td></tr>
-</table>
-</div>
+<div class="content_center">
 <div class="col personalBlogList">
 <table>
-<tr><td colspan="6" class="tdTextCenter">博客列表</td></tr>
-<tr><td colspan="2" ><a href="newblog.htm">写博客</a></td></tr>
 <tr id="trBlogList">
 <td style="width:10%">No.</td>
-<td style="width:35%">博客</td>
-<td style="width:15%">类别</td>
-<td style="width:20%">创作时间</td>
-<td style="width:10%">编辑</td>
-<td style="width:10%">删除</td></tr>
-<tbody id="myEssayListTbody"></tbody>
+<td style="width:40%">博客</td>
+<td style="width:20%">类别</td>
+<td style="width:30%">创作时间</td>
+<tbody id="essayListTbody"></tbody>
 </table>
 <table>
 <tr>
@@ -136,6 +123,6 @@ function trColor(){
 <td><div id="resultNumbers"></div></td>
 </tr>
 </table>
-
+</div>
 </div>
 </div>

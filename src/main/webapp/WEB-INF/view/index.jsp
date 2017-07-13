@@ -10,6 +10,8 @@ $(document).ready(function() {
 	$.changeSelectedNav("nav-index-id");
 });
 </script>
+<div class="blocks">
+<div class="content_center">
 这是一个用ssh(springMVC+spring+hibernate)搭建的简易框架.<br>
 主要目的有如下几个<br>
 <ol>
@@ -17,3 +19,5 @@ $(document).ready(function() {
 <li>添加写网站时常用的共同方法</li>
 <li>添加框架中的各种功能</li>
 </ol>
+</div>
+</div>

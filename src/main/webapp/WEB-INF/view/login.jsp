@@ -20,8 +20,9 @@ function checkParameters(){
 }
 </script>
 <div class="blocks">
+<div class="content_center">
 <form:form id="loginForm" modelAttribute="user" action="login.htm" method="post" onsubmit="return allSubmit(checkParameters);">
-<table>
+<table class="table-margin-left">
 <tr><td colspan="2"><span id="errorText" class="errorText">
 ${validateError}
 </span></td></tr>
@@ -30,4 +31,5 @@ ${validateError}
 <tr><td colspan="2"><input type="submit" value="登录"></td></tr>
 </table>
 </form:form>
+</div>
 </div>

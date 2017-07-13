@@ -36,6 +36,28 @@ jQuery.extend({timeStampToDate:function(timeStamp){
 	return newdate.toLocaleDateString();
 }});
 
+jQuery.extend({flagToLabel:function(flag){
+	var label;
+	switch(flag){
+	case 0:
+		label = "散文";
+		break;
+	case 1:
+		label = "诗歌";
+		break;
+	case 2:
+		label = "微小说";
+		break;
+	case 3:
+		label = "随笔";
+		break;
+	default:
+		label = "散文";
+		break;
+	}
+	return label;
+}});
+
 //对ajax的封装
 jQuery.extend({AJAX:function(settings){
 	if (settings.url.indexOf('?') != -1) {

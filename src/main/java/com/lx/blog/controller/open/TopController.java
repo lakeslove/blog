@@ -5,9 +5,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.lx.blog.controller.AbstractController;
+import com.lx.blog.model.User;
+import com.lx.blog.model.UserMessage;
 
 @Controller
 public class TopController {
@@ -20,23 +23,25 @@ public class TopController {
 	public String index() {
 		return "tiles.view.body.index";
 	}
-	@RequestMapping(value = { "datas.htm" })
-	public String datas() {
-		return "tiles.view.body.datas";
-	}
-	@RequestMapping(value = { "files.htm" })
-	public String files() {
-		return "tiles.view.body.files";
+	
+	@RequestMapping(value = { "prose.htm" },method = RequestMethod.GET)
+	public String prose(Model model) {
+		return "tiles.view.body.prose";
 	}
 	
-	@RequestMapping("test.htm")
-	public String getTole(@RequestParam("id") Long id,Model model){
-//		long start = System.currentTimeMillis();
-//		User User = this.userService.getUser(id);
-//		Long end = System.currentTimeMillis();
-//		System.err.println(end - start);
-//		model.addAttribute("user", User);
-		return "test";
+	@RequestMapping(value = { "poem.htm" },method = RequestMethod.GET)
+	public String poem(Model model) {
+		return "tiles.view.body.poem";
+	}
+	
+	@RequestMapping(value = { "novel.htm" },method = RequestMethod.GET)
+	public String novel(Model model) {
+		return "tiles.view.body.novel";
+	}
+	
+	@RequestMapping(value = { "notes.htm" },method = RequestMethod.GET)
+	public String notes(Model model) {
+		return "tiles.view.body.notes";
 	}
 
 }

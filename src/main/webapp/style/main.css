@@ -5,8 +5,11 @@ body {
     font-size: 1.2em;
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,STHeiti,"Microsoft Yahei",sans-serif;
     -webkit-font-smoothing: antialiased;
-    color: #333;
+    /* color: #333; */
+    background-color: #f4f6f8;
+    /* background: url(../../images/common/greenpaper.jpg) repeat; */
 }
+
 a{
 	cursor: pointer;
 	text-decoration: none;
@@ -137,4 +140,30 @@ td{
 
 .hidden{
 	display:none;
+}
+.textCentet{
+	text-align:center;
+}
+.content_center {
+	position: relative;
+	width: 704px;
+	padding: 40px;
+	font-size: 15px;
+    line-height: 20px;
+	margin: 0px auto 20px;
+	word-wrap: break-word;
+	word-break: normal;
+	opacity: 0.85;
+	background-color:white;
+	/* background-color: rgb(245, 245, 245); */
+	min-height: 580px;
+}
+
+.middle_div{
+	position: relative;
+	margin: 0px auto 20px;
+}
+
+.table-margin-left{
+	margin-left:250px;
 }
