@@ -21,8 +21,8 @@ function checkParameters(){
 </script>
 <style>
 .blogContent{
-width:500px;
-min-height:300px;
+width:100%;
+min-height:500px;
 }
 </style>
 
@@ -30,7 +30,7 @@ min-height:300px;
 <div class="content_center">
 <form:form id="saveBlog" modelAttribute="essay" action="saveblog.htm" method="post" onsubmit="return allSubmit(checkParameters);">
 <form:input path="id" type="title" cssClass="hidden"/>
-<table>
+<table style="width:100%">
 <tr><td colspan="2"><span id="errorText" class="errorText">
 ${errorText}
 </span></td></tr>

@@ -87,10 +87,6 @@ function trColor(){
 	width:60px;
 }
 
-.personalBlogList{
-	padding:10px;
-	width:72%;
-}
 .personalBlogList table{
 	width:100%;
 }
