@@ -12,7 +12,7 @@ $(document).ready(function() {
 </script>
 <div class="blocks">
 <div class="content_center">
-网址源码: <a href="https://github.com/lakeslove/blog" target="_blank">https://github.com/lakeslove/blog</a>
+网站源码: <a href="https://github.com/lakeslove/blog" target="_blank">https://github.com/lakeslove/blog</a>
 <br><br>
 这是一个用SSM(SpringMVC+Tiles+Spring+Mybatis)搭建的简易框架.<br>
 主要目的有如下几个:<br>
@@ -25,7 +25,7 @@ $(document).ready(function() {
 <ol>
 <li>用Mybatis进行增删改查</li>
 <li>发送邮件来注册用户</li>
-<li>翻页功能</li>
+<li>翻页展示</li>
 </ol>
 网站的数据库设计如下<br>
 <img src="image/db.png" style="width:400px;">
