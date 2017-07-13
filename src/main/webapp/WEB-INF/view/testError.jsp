@@ -8,7 +8,7 @@
 <p>Sorry, an error occurred.</p>
 <p>Here is the exception stack trace: </p>
 <pre>
-<% exception.printStackTrace(response.getWriter()); %>
+<%-- <% exception.printStackTrace(response.getWriter()); %> --%>
 </pre>
 </body>
 </html>

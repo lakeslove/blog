@@ -65,27 +65,4 @@ CREATE TABLE `register` (
   `verification_code` varchar(4) NOT NULL,
   `create_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
-
-#插入数据
-INSERT INTO `springMVC`.`user` (`name`, `password`, `slogan`) VALUES ('曲1', 'password', 'sb的宣言');
-INSERT INTO `springMVC`.`user` (`name`, `password`, `slogan`) VALUES ('曲2', 'password', 'sb的宣言');
-INSERT INTO `springMVC`.`user` (`name`, `password`, `slogan`) VALUES ('曲3', 'password', 'sb的宣言');
-INSERT INTO `springMVC`.`user` (`name`, `password`, `slogan`) VALUES ('曲4', 'password', 'sb的宣言');
-INSERT INTO `springMVC`.`user` (`name`, `password`, `slogan`) VALUES ('曲5', 'password', 'sb的宣言');
-INSERT INTO `springMVC`.`user` (`name`, `password`, `slogan`) VALUES ('曲6', 'password', 'sb的宣言');
-INSERT INTO `springMVC`.`user` (`name`, `password`, `slogan`) VALUES ('曲7', 'password', 'sb的宣言');
-INSERT INTO `springMVC`.`user` (`name`, `password`, `slogan`) VALUES ('曲1', 'password', 'sb的宣言');
-INSERT INTO `springMVC`.`user` (`name`, `password`, `slogan`) VALUES ('曲2', 'password', 'sb的宣言');
-INSERT INTO `springMVC`.`user` (`name`, `password`, `slogan`) VALUES ('曲3', 'password', 'sb的宣言');
-INSERT INTO `springMVC`.`user` (`name`, `password`, `slogan`) VALUES ('曲4', 'password', 'sb的宣言');
-INSERT INTO `springMVC`.`user` (`name`, `password`, `slogan`) VALUES ('曲5', 'password', 'sb的宣言');
-INSERT INTO `springMVC`.`user` (`name`, `password`, `slogan`) VALUES ('曲6', 'password', 'sb的宣言');
-INSERT INTO `springMVC`.`user` (`name`, `password`, `slogan`) VALUES ('曲7', 'password', 'sb的宣言');
-INSERT INTO `springMVC`.`user` (`name`, `password`, `slogan`) VALUES ('曲1', 'password', 'sb的宣言');
-INSERT INTO `springMVC`.`user` (`name`, `password`, `slogan`) VALUES ('曲2', 'password', 'sb的宣言');
-INSERT INTO `springMVC`.`user` (`name`, `password`, `slogan`) VALUES ('曲3', 'password', 'sb的宣言');
-INSERT INTO `springMVC`.`user` (`name`, `password`, `slogan`) VALUES ('曲4', 'password', 'sb的宣言');
-INSERT INTO `springMVC`.`user` (`name`, `password`, `slogan`) VALUES ('曲5', 'password', 'sb的宣言');
-INSERT INTO `springMVC`.`user` (`name`, `password`, `slogan`) VALUES ('曲6', 'password', 'sb的宣言');
-INSERT INTO `springMVC`.`user` (`name`, `password`, `slogan`) VALUES ('曲7', 'password', 'sb的宣言');
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;

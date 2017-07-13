@@ -35,6 +35,7 @@ min-height:300px;
 	<div class="title_input"><c:out value="${essay.getTitle()}"/>
 		<div class="nowDate_div">时间: <fmt:formatDate value="${essay.getCreateDate()}" type="date" pattern="yyyy/MM/dd"/></div>
 	</div>
-	<c:out value="${essay.getEssayContent().getContent()}"/>
+	${content}
+	<%-- <c:out value="${essay.getEssayContent().getContent()}"/> --%>
 </div>
 </div>

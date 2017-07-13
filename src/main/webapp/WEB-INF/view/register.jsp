@@ -14,6 +14,7 @@ $(document).ready(function() {
 			alert(messageError["error.email.format"]);
 			return;
 		}
+		
 		$.AJAX({
 			url :  "getVerificationCode.htm",
 			type : "post",
@@ -47,13 +48,13 @@ function checkParameters(){
 <div class="content_center">
 <div class="blocks_title textCentet">新用户注册</div>
 <form:form id="registerForm" modelAttribute="user" action="register.htm" method="post" onsubmit="return allSubmit(checkParameters);">
-<table>
+<table class="table-margin-left">
 <c:if test="${!empty validateError } ">
 <tr><td colspan="2"><span class="errorText"><c:out value="${validateError}"/></span></td></tr>
 </c:if>
 <tr><td>用户名</td><td><form:input id="name" type="text" path="name" placeholder="最长6位"/></td></tr>
 <tr><td>密码</td><td><form:input id="password" type="password" path="password" placeholder="最长8位"/></td></tr>
-<tr><td>邮箱</td><td><form:input id="email" type="text" path="email" placeholder="邮箱"/><td><div class="vitualButton" id="getVerificationCode">获取验证码</div></td></tr>
+<tr><td>邮箱</td><td><form:input id="email" type="text" path="email" placeholder="邮箱"/><td><input type="button" id="getVerificationCode" value="获取验证码"/></td></tr>
 <tr><td>验证码</td><td><input id="code" type="text" name="code" placeholder="验证码"/></td></tr>
 <tr><td colspan="2"><input type="submit" value="提交"></td></tr>
 </table>

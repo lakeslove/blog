@@ -143,6 +143,10 @@
 	</bean>
 	<!-- 异常处理 end -->
 	
+	<!-- 例外処理 開始 -->
+	<bean class="com.lx.blog.exception.ExceptionHandler" />
+	<!-- 例外処理 完了 -->
+	
 	<!-- 缓存支持 start -->
 	<bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
 		<property name="caches">

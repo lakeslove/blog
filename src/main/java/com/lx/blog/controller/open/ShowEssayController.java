@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.lx.blog.controller.AbstractController;
 import com.lx.blog.model.Essay;
-import com.lx.blog.model.User;
-import com.lx.blog.service.EssayContentService;
 import com.lx.blog.service.EssayService;
+import com.lx.blog.util.StringEscapeUtils;
 
 @Controller
 public class ShowEssayController extends AbstractController{
@@ -22,13 +21,12 @@ public class ShowEssayController extends AbstractController{
 	@Autowired
 	private EssayService essayService;
 	
-	@Autowired
-	private EssayContentService essayContentService;
-	
 	@RequestMapping(value = { "show.htm" },method = RequestMethod.GET)
 	public String show(Model model,Long id) {
 		Essay essay = essayService.getEssayAndContent(id);
 		model.addAttribute("essay", essay);
+		String content = essay.getEssayContent().getContent();
+		model.addAttribute("content", StringEscapeUtils.escapeHtml(content));
 		return "tiles.view.body.show";
 	}
 }
