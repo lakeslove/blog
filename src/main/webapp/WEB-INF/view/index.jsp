@@ -13,6 +13,10 @@ $(document).ready(function() {
 <div class="blocks">
 <div class="content_center">
 网站源码: <a href="https://github.com/lakeslove/blog" target="_blank">https://github.com/lakeslove/blog</a>
+<br>
+因为服务器在华北，数据库在华东，所以访问请求较慢，囧RZ....
+<br>
+因为邮箱服务器用的是163的个人邮件转发的，所以这速度。。。你懂的
 <br><br>
 这是一个用SSM(SpringMVC+Tiles+Spring+Mybatis)搭建的简易框架.<br>
 主要目的有如下几个:<br>
