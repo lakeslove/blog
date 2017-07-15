@@ -11,8 +11,11 @@ $(document).ready(function() {
 	$("#personalData .row div:even").addClass("col-sm-4 col-sm-12");
 	$("#personalData .row div:odd").addClass("col-sm-8 col-sm-12");
 	myEssayList(1);
-	
 });
+function setLeftBlockHeight(){
+	var heightTmp = $("#blocksDiv").css("height");
+	$("#leftBlock").css("height",heightTmp);
+}
 function myEssayList(page) {
 	var searchFormData = $('#searchUsersForm').serialize();
 	var tempData = '&currentPage=' + page;
@@ -118,8 +121,8 @@ margin:0 auto;
 	background-color: bisque;
 }
 </style>
-<div class="blocks">
-<div class="col leftBlock">
+<div class="blocks" id ="blocksDiv">
+<div id="leftBlock" class="col leftBlock">
 <div id="personalData" class="row">
 <div ><div class="tdTextCenter">个人主页</div></div>
 <div class="row"><div class="firstTd">昵称</div><div>${user.getName()}</div></div>

@@ -11,12 +11,17 @@
 }
 
 #navigation-row >div {
+	text-align: right;
+    width: 115px;
+    margin-left: 2%;
 	font-size: 28px;
 	line-height:55px;
+	word-break:keep-all;/* 不换行 */
+	white-space:nowrap;/* 不换行 */
 /* 	font-weight: bolder; */
 }
 #navigation-row{
-	width:84%;
+	width:90%;
 	margin: 0 auto;
 }
 
@@ -76,5 +81,5 @@
 </div>
 </div>
 <script type="text/javascript">
-$("#navigation-row div").addClass("col-xs-6 col-xs-4 col-sm-2 ");
+$("#navigation-row div").addClass("col-xs-6 col-xs-4 col-xs-2 col-sm-2 ");
 </script>
