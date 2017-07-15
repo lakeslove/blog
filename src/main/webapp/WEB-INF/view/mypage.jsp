@@ -76,11 +76,10 @@ function trColor(){
 }
 function deleteBlog(id){
 	var r=confirm("你确定要删除此博客吗？");
-	if (r==true){
-	    window.location="deleteblog.htm?id="+resultList[i].id;
-	    return;
+	if (r==false){
+		return false;  
 	}
-	return false;
+	window.location.href="deleteblog.htm?id="+id;
 }
 </script>
 <style>
@@ -103,7 +102,7 @@ margin:0 auto;
 
 .personalBlogList{
 	padding:10px;
-	width:72%;
+	width:78%;
 }
 .personalBlogList table{
 	width:100%;
@@ -142,13 +141,9 @@ margin:0 auto;
 <td style="width:10%">删除</td></tr>
 <tbody id="myEssayListTbody"></tbody>
 </table>
-<table>
-<tr>
-<td><div id="resultPages"></div></td>
-<td style="width:100px"></td>
-<td><div id="resultNumbers"></div></td>
-</tr>
-</table>
-
+<div class="row">
+<div id="resultPages" class=" col-sm-8 col-xs-12"></div>
+<div id="resultNumbers" class="col-sm-4 col-xs-12 "></div>
+</div>
 </div>
 </div>
