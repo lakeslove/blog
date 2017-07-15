@@ -20,7 +20,7 @@
 <script src="${pageContext.request.contextPath}/javascript/main.js"></script>
 <link href="${pageContext.request.contextPath}/style/main.css" type="text/css" rel="stylesheet" />
 <link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css" rel="stylesheet">
-<%-- <link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap-theme.css" rel="stylesheet"> --%>
+<link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap-theme.css" rel="stylesheet">
 <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.js"></script>
 <c:if test="${!empty css}">
 <link href="<tiles:getAsString name="css"/>" type="text/css" rel="stylesheet" />
@@ -31,10 +31,8 @@
 <tiles:insertAttribute name="message"/>
 </head>
 <body>
-<div id="position" style="position:relative">
-<div class="header"><tiles:insertAttribute name="header"/></div>
-<div class="contenter"><tiles:insertAttribute name="body"/></div>
-<div class="footer"><tiles:insertAttribute name="footer"/></div>
-</div>
+<div class="container"><tiles:insertAttribute name="header"/></div>
+<div class="container"><tiles:insertAttribute name="body"/></div>
+<div class="container footer"><tiles:insertAttribute name="footer"/></div>
 </body>
 </html>

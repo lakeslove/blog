@@ -46,7 +46,7 @@ jQuery.extend({flagToLabel:function(flag){
 		label = "诗歌";
 		break;
 	case 2:
-		label = "微小说";
+		label = "小说";
 		break;
 	case 3:
 		label = "随笔";

@@ -8,6 +8,8 @@
 <script src="${pageContext.request.contextPath}/javascript/pageUtils.js"></script>
 <script>
 $(document).ready(function() {
+	$("#personalData .row div:even").addClass("col-sm-4 col-sm-12");
+	$("#personalData .row div:odd").addClass("col-sm-8 col-sm-12");
 	myEssayList(1);
 	
 });
@@ -81,11 +83,14 @@ function trColor(){
     height: 500px;
     padding:10px;
 }
-#personalData tr{
-	height:40px;
+#personalData >div >div{
+	height:36px;
 }
 #personalData .firstTd{
 	width:60px;
+}
+#personalData{
+margin:0 auto;
 }
 
 .personalBlogList{
@@ -108,13 +113,13 @@ function trColor(){
 </style>
 <div class="blocks">
 <div class="col leftBlock">
-<table id="personalData">
-<tr><td colspan="2" class="tdTextCenter">个人主页</td></tr>
-<tr><td class="firstTd">昵称</td><td>${user.getName()}</td></tr>
-<tr><td>标语</td><td>${user.getSlogan()}</td></tr>
+<div id="personalData" class="row">
+<div ><div class="tdTextCenter">个人主页</div></div>
+<div class="row"><div class="firstTd">昵称</div><div>${user.getName()}</div></div>
+<div class="row"><div>标语</div><div>${user.getSlogan()}</div></div>
 <%-- <tr><td>兴趣</td><td>${userMessage.getInterest()}</td></tr> --%>
-<tr><td colspan="2"><a href="setting.htm">设置</a></td></tr>
-</table>
+<div class="row"><div><a href="setting.htm">设置</a></div></div>
+</div>
 </div>
 <div class="col personalBlogList">
 <table>

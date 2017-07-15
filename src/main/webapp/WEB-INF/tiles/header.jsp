@@ -6,97 +6,75 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <style>
-.logo {
-	margin-left: 8%;
-	width: 50%;
-	hight: 100px;
-}
-
-.logo a {
-	height: 39px;
-	display: block;
-}
-
-.search {
-	position: relative;
-	width: 26%;
-	margin: 30px 15px;
-}
-
-.search input {
-	line-height: 34px;
-	left: 9px;
-	top: 0;
-	text-align: initial;
-	white-space: nowrap;
-	right: 9px;
-	height: 35px;
-	width: 94%;
-	padding: 0 3% 0 3%;
-	background-color: #fff;
-	border: 1px solid #c8c8c8;
-	border-radius: 3px;
-	color: #ccc;
-	font-weight: 400;
-	font-size: 1.2em;
-}
-
 .navigation {
 	background: #b0dce0;
 }
 
-.nav li {
-	display: inline;
-	margin: 15px 60px;
+#navigation-row >div {
 	font-size: 28px;
-	font-weight: bolder;
+	line-height:55px;
+/* 	font-weight: bolder; */
+}
+#navigation-row{
+	width:84%;
+	margin: 0 auto;
 }
 
-.nav li a {
+#navigation-row a {
 	text-decoration: none;
 	color: #f3a;
 }
 
-.selected-nav {
-	color: white;
-}
-
-#login {
+.login {
 	position: absolute;
-	right: 30px;
+	right: 25px;
 }
 </style>
-<div class="subject row pr">
-    <div class="col logo">
-      <h1><a href="index.htm">微博客</a></h1>
-    </div>
-    <div class="col search">
-      <form action="" target="_blank">
-        <!-- <input class="" id="s" placeholder="search"  name="search" autocomplete="off"> -->
-      </form>
-    </div>
-    <c:set var="USER_NAME" value='${sessionScope.SESSION_LOGIN_USER.getName()}'/>
-    <c:if test="${empty USER_NAME}">
-    <div id = "login"><a href="login.htm">登录</a>&nbsp;&nbsp;&nbsp;<a href="register.htm">注册</a></div>
-    </c:if>
-    <c:if test="${not empty USER_NAME}">
-    <div id = "login">
-    	<a href="${pageContext.request.contextPath}/manager/mypage.htm">${USER_NAME}&nbsp;的博客</a>
+<div class="row" style="height:20px;">
+	<div class="col-sm-12">
+		<div class="login">
+			<c:set var="USER_NAME"
+				value='${sessionScope.SESSION_LOGIN_USER.getName()}' />
+			<c:if test="${empty USER_NAME}">
+				<a href="login.htm">登录</a>&nbsp;&nbsp;&nbsp;<a href="register.htm">注册</a>
+			</c:if>
+			<c:if test="${not empty USER_NAME}">
+				<a href="${pageContext.request.contextPath}/manager/mypage.htm">${USER_NAME}&nbsp;的博客</a>
     	&nbsp;&nbsp;&nbsp;&nbsp;
     	<a href="${pageContext.request.contextPath}/logout.htm">退出</a>
-    	</div>
-    </c:if>
-</div>
-<div class="container navigation">
-	<div class="row">
-		<div class="col nav">
-			<ul id="index-nav">
-				<li><a href="${pageContext.request.contextPath}/index.htm" id="nav-index-id" title="首页" class="current">首页</a></li>
-				<li><a href="${pageContext.request.contextPath}/prose.htm" id="nav-prose-id" title="散文">散文</a></li>
-				<li><a href="${pageContext.request.contextPath}/poem.htm" id="nav-poem-id" title="诗歌">诗歌</a></li>
-				<li><a href="${pageContext.request.contextPath}/novel.htm" id="nav-novel-id" title="微小说">微小说</a></li>
-				<li><a href="${pageContext.request.contextPath}/notes.htm" id="nav-notes-id" title="随笔">随笔</a></li>
-			</ul>
+			</c:if>
 		</div>
 	</div>
 </div>
+<div class="row">
+    <div class="col-sm-12">
+      <h1><a href="index.htm">微博客</a></h1>
+    </div>
+</div>
+<div class="navigation">
+<div id="navigation-row" class="row">
+	<div>
+		<a href="${pageContext.request.contextPath}/index.htm"
+			id="nav-index-id" title="首页" class="current">首页</a>
+	</div>
+	<div>
+		<a href="${pageContext.request.contextPath}/prose.htm"
+			id="nav-prose-id" title="散文">散文</a>
+	</div>
+	<div>
+		<a href="${pageContext.request.contextPath}/poem.htm" id="nav-poem-id"
+			title="诗歌">诗歌</a>
+	</div>
+	<div>
+		<a href="${pageContext.request.contextPath}/novel.htm"
+			id="nav-novel-id" title="小说">小说</a>
+	</div>
+	<div>
+		<a href="${pageContext.request.contextPath}/notes.htm"
+			id="nav-notes-id" title="随笔">随笔</a>
+	</div>
+</div>
+</div>
+<script type="text/javascript">
+$("#navigation-row div").addClass("col-xs-6 col-xs-4 col-sm-2 ");
+</script>

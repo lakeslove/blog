@@ -8,6 +8,9 @@
 <script type="text/javascript" src="javascript/verification.js"></script>
 <script>
 $(document).ready(function() {
+	var row = $("#registerForm .table-margin-left").children("div");
+	row.addClass("row");
+	row.find("div").addClass("col-sm-12 col-sm-4");
 	$("#getVerificationCode").click(function(){
 		var emailValue = $("#email").val();
 		if(!isEmail(emailValue)){
@@ -44,20 +47,30 @@ function checkParameters(){
 	return true;
 }
 </script>
+<style>
+/* #registerForm .table-margin-left >div .lab{
+   text-align:right; 
+} */
+.formDiv{
+width:70%;
+margin:0 auto;
+}
+</style>
 <div class="blocks">
 <div class="content_center">
 <div class="blocks_title textCentet">新用户注册</div>
 <form:form id="registerForm" modelAttribute="user" action="register.htm" method="post" onsubmit="return allSubmit(checkParameters);">
-<table class="table-margin-left">
+<div class="table-margin-left formDiv">
 <c:if test="${!empty validateError } ">
-<tr><td colspan="2"><span class="errorText"><c:out value="${validateError}"/></span></td></tr>
+<div><div><span class="errorText"><c:out value="${validateError}"/></span></div></div>
 </c:if>
-<tr><td>用户名</td><td><form:input id="name" type="text" path="name" placeholder="最长6位"/></td></tr>
-<tr><td>密码</td><td><form:input id="password" type="password" path="password" placeholder="最长8位"/></td></tr>
-<tr><td>邮箱</td><td><form:input id="email" type="text" path="email" placeholder="邮箱"/><td><input type="button" id="getVerificationCode" value="获取验证码"/></td></tr>
-<tr><td>验证码</td><td><input id="code" type="text" name="code" placeholder="验证码"/></td></tr>
-<tr><td colspan="2"><input type="submit" value="提交"></td></tr>
-</table>
+<div><div class="lab">用户名</div><div><form:input id="name" type="text" path="name" placeholder="最长6位"/></div></div>
+<div><div class="lab">密码</div><div><form:input id="password" type="password" path="password" placeholder="最长8位"/></div></div>
+<div><div class="lab">邮箱</div><div><form:input id="email" type="text" path="email" placeholder="邮箱"/></div><div style="text-align:center;"><input type="button" id="getVerificationCode" value="获取验证码"/></div></div>
+<div><div class="lab">验证码</div><div><input id="code" type="text" name="code" placeholder="验证码"/></div></div>
+<div><br></div>
+<div><div></div><div><input type="submit" value="提交"></div></div>
+</div>
 </form:form>
 </div>
 </div>
