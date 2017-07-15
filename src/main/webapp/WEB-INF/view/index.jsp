@@ -32,6 +32,6 @@ $(document).ready(function() {
 <li>翻页展示</li>
 </ol>
 网站的数据库设计如下<br>
-<img src="image/db.png" style="width:400px;">
+<img src="image/db.png" class="img-responsive" style="width:400px;">
 </div>
 </div>
