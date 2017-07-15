@@ -48,7 +48,7 @@
 </div>
 <div class="row">
     <div class="col-sm-12">
-      <h1><a href="index.htm">微博客</a></h1>
+      <h1><a href="${pageContext.request.contextPath}/index.htm">微博客</a></h1>
     </div>
 </div>
 <div class="navigation">

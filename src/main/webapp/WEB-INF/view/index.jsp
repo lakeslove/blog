@@ -11,7 +11,8 @@ $(document).ready(function() {
 });
 </script>
 <div class="blocks">
-<div class="content_center">
+<div class="content_center" >
+<div style="margin:0 auto;width:80%;background-color:rgb(245, 245, 245);padding:2%;">
 网站源码: <a href="https://github.com/lakeslove/blog" target="_blank">https://github.com/lakeslove/blog</a>
 <br>
 因为服务器在华北，数据库在华东，所以访问请求较慢，囧RZ....
@@ -33,5 +34,6 @@ $(document).ready(function() {
 </ol>
 网站的数据库设计如下<br>
 <img src="image/db.png" class="img-responsive" style="width:400px;">
+</div>
 </div>
 </div>
