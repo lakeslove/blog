@@ -28,9 +28,10 @@ a{
 	min-height: 300px;
 }
 .footer{
+	border-top: solid 2px #e6f1f3;
 	position:relative;
 	padding:10px;
-	background-color:#c1dacc;
+	/* background-color:#c1dacc; */
 	margin:10px 5px;
 	overflow: hidden;
 }
@@ -115,7 +116,7 @@ td{
 	position:relative;
 	overflow:hidden;
 	margin:10px;
-	border:solid 1px red;
+	/* border:solid 1px red; */
 	min-height: 400px;
 }
 .block{

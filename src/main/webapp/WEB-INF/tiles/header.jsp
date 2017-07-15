@@ -7,28 +7,27 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <style>
 .navigation {
-	background: #b0dce0;
+	/* background: #b0dce0; */
 }
 
-#navigation-row >div {
-	text-align: right;
-    width: 115px;
+#navigation-row li {
+	text-align: center;
+    width: 100px;
     margin-left: 2%;
-	font-size: 28px;
-	line-height:55px;
+	font-size: 20px;
+	line-height:40px;
 	word-break:keep-all;/* 不换行 */
 	white-space:nowrap;/* 不换行 */
 /* 	font-weight: bolder; */
 }
 #navigation-row{
-	width:90%;
 	margin: 0 auto;
 }
 
-#navigation-row a {
+/* #navigation-row a {
 	text-decoration: none;
 	color: #f3a;
-}
+} */
 
 .login {
 	position: absolute;
@@ -56,29 +55,20 @@
       <h1><a href="${pageContext.request.contextPath}/index.htm">微博客</a></h1>
     </div>
 </div>
-<div class="navigation">
-<div id="navigation-row" class="row">
-	<div>
-		<a href="${pageContext.request.contextPath}/index.htm"
-			id="nav-index-id" title="首页" class="current">首页</a>
-	</div>
-	<div>
-		<a href="${pageContext.request.contextPath}/prose.htm"
-			id="nav-prose-id" title="散文">散文</a>
-	</div>
-	<div>
-		<a href="${pageContext.request.contextPath}/poem.htm" id="nav-poem-id"
-			title="诗歌">诗歌</a>
-	</div>
-	<div>
-		<a href="${pageContext.request.contextPath}/novel.htm"
-			id="nav-novel-id" title="小说">小说</a>
-	</div>
-	<div>
-		<a href="${pageContext.request.contextPath}/notes.htm"
-			id="nav-notes-id" title="随笔">随笔</a>
-	</div>
-</div>
+<div id="navigation-row" class="navigation">
+<ul class="nav nav-tabs">
+<!--   <li class="active"><a href="#">Home</a></li> -->
+  <li><a href="${pageContext.request.contextPath}/index.htm"
+			id="nav-index-id" title="首页" class="current">首页</a></li>
+  <li><a href="${pageContext.request.contextPath}/prose.htm"
+			id="nav-prose-id" title="散文">散文</a></li>
+  <li><a href="${pageContext.request.contextPath}/poem.htm" id="nav-poem-id"
+			title="诗歌">诗歌</a></li>
+  <li><a href="${pageContext.request.contextPath}/novel.htm"
+			id="nav-novel-id" title="小说">小说</a></li>
+  <li><a href="${pageContext.request.contextPath}/notes.htm"
+			id="nav-notes-id" title="随笔">随笔</a></li>
+</ul>
 </div>
 <script type="text/javascript">
 $("#navigation-row div").addClass("col-xs-6 col-xs-4 col-xs-2 col-sm-2 ");

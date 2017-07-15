@@ -51,13 +51,14 @@ function pageHelper(settings){
         }
          
         if(typeof settings.success=="function"){
-            createPagesString();
+//            createSimplePagesString();
+        	createBootstrapPageString()
             settings.success(data);
         }
         
-        function createPagesString(){
+        function createSimplePagesString(){
             //获取翻页
-            var sumpage = sizeOfAll%numPerPage==0?parseInt(sizeOfAll/numPerPage):parseInt(sizeOfAll/numPerPage)+1; 
+        	var sumpage = sizeOfAll%numPerPage==0?parseInt(sizeOfAll/numPerPage):parseInt(sizeOfAll/numPerPage)+1; 
             var startPage = parseInt((nowPage-1)/Num)*Num+1; var endPage = (startPage +Num-1)>sumpage?sumpage:startPage +Num-1;
             if(nowPage>Num){ 
                 pagesString = pagesString+'<a style="color:blue;" onclick="'+methodName+'('+1+')">首页</a>　'; 
@@ -85,5 +86,45 @@ function pageHelper(settings){
             data["pagesString"] = pagesString;
             data["numString"] = numString;
         }
+        
+        function createBootstrapPageString(){
+        	var sumpage = sizeOfAll%numPerPage==0?parseInt(sizeOfAll/numPerPage):parseInt(sizeOfAll/numPerPage)+1;
+    		if(sumpage<2){
+    			return '<ul class="pagination"><li><span style="border:1px solid #fff;"></span></li></ul>';
+    		}
+    		var Num = 5;
+    		var pagesString = '<ul class="pagination">';
+    		var startPage = parseInt((nowPage-1)/Num)*Num+1;
+    		var endPage = (startPage +Num-1)>sumpage?sumpage:startPage +Num-1;
+    		if(nowPage>Num){
+    			pagesString = pagesString+'<li><a onclick="'+methodName+'('+1+')"><span>首页</span></a></li>';
+    			var preStartPage=startPage-Num;
+    			pagesString = pagesString+'<li><a onclick="'+methodName+'('+preStartPage+')"><span>&laquo;</span></a></li>';
+    		}else{
+    			pagesString = pagesString+'<li class="disabled"><span aria-hidden="true">首页</span></li>';
+    			var preStartPage=startPage-Num;
+    			pagesString = pagesString+'<li class="disabled"><span aria-hidden="true">&laquo;</span></li>';
+    		}
+    		for(var i=startPage;i<=endPage;i++){
+    			if(i==nowPage){
+    				pagesString =pagesString +'<li class="active"><span>'+i+'</span></li>'
+    			}else{
+    				pagesString =pagesString +'<li><a onclick="'+methodName+'('+i+')"><span>'+i+'</span></a></li>';
+    			}
+    		}
+    		if((startPage+Num-1)<sumpage){
+    			var nextStartPage=startPage+Num;
+    			pagesString =pagesString +'<li><a onclick="'+methodName+'('+nextStartPage+')"><span>&raquo;</span></a></li>';
+    			pagesString =pagesString +'<li><a onclick="'+methodName+'('+sumpage+')"><span>末页</span></a></li>';
+    		}else{
+    			var nextStartPage=startPage+Num;
+    			pagesString =pagesString +'<li class="disabled"><span aria-hidden="true">&raquo;</span></li>　';
+    			pagesString =pagesString +'<li class="disabled"><span aria-hidden="true">末页</span></li>';
+    		}
+    		pagesString = pagesString + "</ul>";
+    		//将结果放进data对象中
+            data["pagesString"] = pagesString;
+            data["numString"] = "";
+    	}
 }
 

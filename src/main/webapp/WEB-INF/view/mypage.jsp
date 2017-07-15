@@ -145,8 +145,10 @@ margin:0 auto;
 <tbody id="myEssayListTbody"></tbody>
 </table>
 <div class="row">
-<div id="resultPages" class=" col-sm-8 col-xs-12"></div>
-<div id="resultNumbers" class="col-sm-4 col-xs-12 "></div>
+<!-- <div id="resultPages" class=" col-sm-8 col-xs-12"></div>
+<div id="resultNumbers" class="col-sm-4 col-xs-12" ></div> -->
+<div id="resultPages"></div>
+<div id="resultNumbers" ></div>
 </div>
 </div>
 </div>

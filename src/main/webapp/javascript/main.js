@@ -27,7 +27,8 @@ jQuery.extend({ajaxPretrate:function(){
 }});
 
 jQuery.extend({changeSelectedNav:function(id){
-	$("#"+id).css("color","white");
+//	$("#"+id).css("color","white");
+	$("#"+id).parent("li").addClass("active")
 }});
 
 jQuery.extend({timeStampToDate:function(timeStamp){

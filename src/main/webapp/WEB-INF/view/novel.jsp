@@ -115,8 +115,8 @@ function trColor(){
 <table>
 <tr>
 <td><div id="resultPages"></div></td>
-<td style="width:100px"></td>
-<td><div id="resultNumbers"></div></td>
+<!-- <td style="width:100px"></td>
+<td><div id="resultNumbers"></div></td> -->
 </tr>
 </table>
 </div>
