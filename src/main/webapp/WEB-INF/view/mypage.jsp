@@ -45,7 +45,7 @@ function showDatasInTable(data){
 				"<td>"+$.flagToLabel(resultList[i].flag)+"</td>"+
 				"<td>"+$.timeStampToDate(resultList[i].createDate)+"</td>"+
 				"<td>"+"<a href='editblog.htm?id="+resultList[i].id+"'>编辑</a>"+"</td>"+
-				"<td>"+"<a href='deleteblog.htm?id="+resultList[i].id+"'>删除</a>"+"</td>"+
+				"<td>"+"<a onclick='deleteBlog("+resultList[i].id+")'>删除</a>"+"</td>"+
 				"</tr>"
 				insertTds = insertTds+teminsertTds;
 		}
@@ -73,6 +73,14 @@ function turnPage(page){
 }
 function trColor(){
 	$("#myEssayListTbody tr:odd").css("background","#e1eff1");
+}
+function deleteBlog(id){
+	var r=confirm("你确定要删除此博客吗？");
+	if (r==true){
+	    window.location="deleteblog.htm?id="+resultList[i].id;
+	    return;
+	}
+	return false;
 }
 </script>
 <style>

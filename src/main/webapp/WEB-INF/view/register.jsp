@@ -33,6 +33,7 @@ $(document).ready(function() {
 		});
 	})
 });
+
 function checkParameters(){
 	var name = $("#name").val();
 	if(name.length>6){
