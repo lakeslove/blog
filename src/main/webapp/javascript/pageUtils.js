@@ -36,6 +36,7 @@ function pageHelper(settings){
         var numPerPage=settings.numPerPage;
         var sizeOfAll=settings.sizeOfAll;
         var methodName =settings.methodName;
+        var type=settings.type;
         var Num = 5;
         var pagesString = "";
         var numString = "";
@@ -51,8 +52,14 @@ function pageHelper(settings){
         }
          
         if(typeof settings.success=="function"){
-//            createSimplePagesString();
-        	createBootstrapPageString()
+        	switch(type){
+        	case 1:
+        		createSimplePagesString();
+        	break;
+        	default:
+        		createBootstrapPageString();
+        	break;
+        	}
             settings.success(data);
         }
         
