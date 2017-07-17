@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd     
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+        
+    <!-- 自动扫描该包，SpringMVC会将包下用了@controller注解的类注册为Spring的controller -->
+    <context:component-scan base-package="com.lx.blog.controller" />
+    <!-- 设置默认配置方案 -->
+    <mvc:annotation-driven/>
+    <!-- 使用默认的Servlet来响应静态文件 -->
+    <mvc:default-servlet-handler/>
+    
+    <!-- viewResolver start -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="order" value="2" />
+		<property name="prefix">
+			<value>/WEB-INF/view/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+	
+	<!-- tiles 配置开始 -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="order" value="1" />
+		<property name="viewClass">
+			<value>
+				org.springframework.web.servlet.view.tiles3.TilesView
+			</value>
+		</property>
+	</bean>
+	
+	<bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/classes/tilesOpen.xml</value>
+			</list>
+		</property>
+	</bean>
+	<!-- tiles 配置结束 -->
+	<!-- viewResolver end -->
+    
+    <!-- 文件上传限制 开始 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="UTF-8" />
+		<property name="maxUploadSize" value="10485760" />
+		<property name="maxInMemorySize" value="1048576" />
+	</bean>
+	<!-- 文件上传限制 结束 -->
+    
+</beans>

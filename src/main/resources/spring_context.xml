@@ -23,53 +23,11 @@
 
 	<context:property-placeholder location="classpath:system.properties" />
 	<context:annotation-config />
-	<!-- 使用注解管理事务 -->
-	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>	
-	<cache:annotation-driven cache-manager="cacheManager"/>
-	<task:executor id="taskExecutor" pool-size="1-20" queue-capacity="30" keep-alive="60" />
-	<task:scheduler id="scheduler" pool-size="1" />
-	<task:annotation-driven executor="taskExecutor" scheduler="scheduler" />
 	<!-- 需要扫描的包 start-->
-	<context:component-scan base-package="com.lx.blog.controller" />
 	<context:component-scan base-package="com.lx.blog.service" />
 	<!-- 需要扫描的包 end -->
 	
- 	<mvc:annotation-driven />
- 	<!-- 数据验证 start -->
-	<!-- 数据验证 end -->
- 	<!-- viewResolver start -->
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="order" value="2" />
-		<property name="prefix">
-			<value>/WEB-INF/view/</value>
-		</property>
-		<property name="suffix">
-			<value>.jsp</value>
-		</property>
-	</bean>
-	
-	<!-- tiles 配置开始 -->
-	<bean id="viewResolver"
-		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
-		<property name="order" value="1" />
-		<property name="viewClass">
-			<value>
-				org.springframework.web.servlet.view.tiles3.TilesView
-			</value>
-		</property>
-	</bean>
-	
-	<bean id="tilesConfigurer"
-		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
-		<property name="definitions">
-			<list>
-				<value>/WEB-INF/classes/tilesOpen.xml</value>
-			</list>
-		</property>
-	</bean>
-	<!-- tiles 配置结束 -->
-	<!-- viewResolver end -->
-    
+    <!-- 配置dbcp2数据源 -->
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
 		destroy-method="close">
 		<property name="url" value="${db.url}"></property>
@@ -85,9 +43,6 @@
 		<property name="minEvictableIdleTimeMillis" value="300000" />
 		<property name="poolPreparedStatements" value="true" />
 		<property name="removeAbandonedOnBorrow" value="true" />
-		<property name="validationQuery">
-			<value>select 1 from dual</value>
-		</property>
 	</bean>
 	
 	<!-- 使用MyBatis-spring的sqlSessionFactory来代替MyBatis本身的sqlSessionFactory -->
@@ -101,18 +56,19 @@
 		<constructor-arg index="0" ref="sqlSessionFactory" />
 		<!-- <constructor-arg index="1" value="BATCH" /> -->
 	</bean>
-	
-	<!-- 事务管理 -->
-	<bean id="transactionManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSource" />
-	</bean>
 
 	<!-- 采用自动扫描方式创建mappper bean -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com"/>
+		<property name="basePackage" value="com.lx.blog.dao"/>
 		<property name="sqlSessionTemplateBeanName" value="sqlSessionTemplate"/>
 		<property name="annotationClass" value="org.springframework.stereotype.Repository"/>
+	</bean>
+	
+	<!-- 使用注解管理事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>	
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
 	</bean>
 	
 	<!-- 国际化（多语言对应） 开始 -->
@@ -132,7 +88,7 @@
 	<!-- 国际化（多语言对应） 结束-->
 	
 	<!-- 异常处理 start -->
-	<!-- <bean class="com.lx.blog.exception.ExceptionHandler" /> -->
+	<bean class="com.lx.blog.exception.ExceptionHandler" />
 	<bean id="exceptionResolver"
 		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="exceptionMappings">
@@ -143,11 +99,8 @@
 	</bean>
 	<!-- 异常处理 end -->
 	
-	<!-- 例外処理 開始 -->
-	<bean class="com.lx.blog.exception.ExceptionHandler" />
-	<!-- 例外処理 完了 -->
-	
 	<!-- 缓存支持 start -->
+	<cache:annotation-driven cache-manager="cacheManager"/>
 	<bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
 		<property name="caches">
 			<set>
@@ -158,15 +111,6 @@
 		</property>
 	</bean>
 	<!-- 缓存支持 end -->
-	
-	<!-- 文件上传限制 开始 -->
-	<bean id="multipartResolver"
-		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<property name="defaultEncoding" value="UTF-8" />
-		<property name="maxUploadSize" value="10485760" />
-		<property name="maxInMemorySize" value="1048576" />
-	</bean>
-	<!-- 文件上传限制 结束 -->
 	
 	<!-- velocityEngine start-->
 	<bean id="velocityEngine"
@@ -223,7 +167,5 @@
 		</aop:aspect>
 	</aop:config> -->
 	<!-- AOP demo end  -->
-	
-	
 	
 </beans>
