@@ -3,10 +3,7 @@ package com.lx.blog.model;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
-
-@MappedSuperclass
+//@MappedSuperclass
 public abstract class Abstract implements Serializable {
 	/**
 	 * 
@@ -16,13 +13,13 @@ public abstract class Abstract implements Serializable {
 	/**
 	 * 
 	 */
-	@Column(name = "create_date", updatable = false)
+//	@Column(name = "create_date", updatable = false)
 	protected Timestamp createDate;
 
 	/**
 	 * 
 	 */
-	@Column(name = "update_date")
+//	@Column(name = "update_date")
 	protected Timestamp updateDate;
 	
 //	public void setUpdate(){

@@ -2,16 +2,8 @@ package com.lx.blog.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.Size;
-
-@Entity
-@Table(name = "register")
+//@Entity
+//@Table(name = "register")
 public class EssayContent extends Abstract implements Serializable {
 
 	/**
@@ -19,21 +11,21 @@ public class EssayContent extends Abstract implements Serializable {
 	 */
 	private static final long serialVersionUID = -8151954470245602807L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "id", insertable = false, updatable = false)
+//	@Id
+//	@GeneratedValue(strategy=GenerationType.IDENTITY)
+//	@Column(name = "id", insertable = false, updatable = false)
 	private Long id;
 	
-	@Column(name = "essay_id")
+//	@Column(name = "essay_id")
 	private Long essayId;
 	
-	@Column(name = "chapter")
+//	@Column(name = "chapter")
 	private Integer chapter;
 	
-	@Column(name = "chapter_name")
+//	@Column(name = "chapter_name")
 	private String chapterName;
 	
-	@Column(name = "content")
+//	@Column(name = "content")
 	private String content;
 
 	public Long getId() {
