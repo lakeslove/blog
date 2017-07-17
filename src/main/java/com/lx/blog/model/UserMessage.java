@@ -2,34 +2,26 @@ package com.lx.blog.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.Size;
-
-@Entity
-@Table(name = "user_message")
+//@Entity
+//@Table(name = "user_message")
 public class UserMessage extends Abstract implements Serializable {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -7196121883319263983L;
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "id", insertable = false, updatable = false)
+//	@Id
+//	@GeneratedValue(strategy=GenerationType.IDENTITY)
+//	@Column(name = "id", insertable = false, updatable = false)
 	private Long id;
 	
-	@Column(name = "user_id")
+//	@Column(name = "user_id")
 	private Long userId;
 	
-	@Column(name = "user_type_id")
+//	@Column(name = "user_type_id")
 	private Long user_type_id;
 	
-	@Column(name = "interest")
+//	@Column(name = "interest")
 	private String interest;
 
 	public Long getId() {
