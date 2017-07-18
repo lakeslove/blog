@@ -28,13 +28,9 @@
 	
 	<!-- 指定映射器 -->
 	<mappers>
-		<!-- <mapper resource="com/lx/blog/dao/Impl/UserDaoImpl.xml"/> -->
-		<!-- <package name="com.lx.blog.dao.Impl"/> -->
-		<mapper resource="com/lx/blog/dao/Impl/UserDaoMapper.xml"/>
-		<mapper resource="com/lx/blog/dao/Impl/UserMessageDaoMapper.xml"/>
-		<mapper resource="com/lx/blog/dao/Impl/RegisterDaoMapper.xml"/>
-		<mapper resource="com/lx/blog/dao/Impl/EssayDaoMapper.xml"/>
-		<mapper resource="com/lx/blog/dao/Impl/EssayContentDaoMapper.xml"/>
+		<!-- 如果要用包映射，必须保证接口和xml文件在同一包而且文件名称相同 -->
+		<package name="com.lx.blog.dao"/>
+		<!-- <mapper resource="com/lx/blog/dao/Impl/UserDaoMapper.xml"/> -->
 	</mappers>
 	
 </configuration>

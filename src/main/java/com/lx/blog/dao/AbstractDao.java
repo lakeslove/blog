@@ -1,4 +1,4 @@
-package com.lx.blog.dao.Impl;
+package com.lx.blog.dao;
 
 import java.io.Serializable;
 
