@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-
 	<settings>
 		<!-- 指定 MyBatis 所用日志的具体实现 -->
 		<setting name="logImpl" value="SLF4J" />
@@ -25,6 +24,13 @@
 		<!-- <typeAlias alias="user" type="com.lx.blog.model.User"/> -->
 		<package name="com.lx.blog.model"/>
 	</typeAliases>
+	
+	<!-- 插件设置 -->
+	<plugins>
+		<plugin interceptor="com.lx.blog.util.mybatis.plugin.MybatisLogPlugin">
+			<property name="prefix" value="Mybatis执行的SQL"/>
+		</plugin>
+	</plugins>
 	
 	<!-- 指定映射器 -->
 	<mappers>
