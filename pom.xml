@@ -70,12 +70,12 @@
 		</dependency>
 
 		<!-- slf4j日志依赖 -->
-        <!--用于log与slf4j保持桥接-->  
-        <dependency>  
-            <groupId>org.apache.logging.log4j</groupId>  
-            <artifactId>log4j-slf4j-impl</artifactId>  
-            <version>2.4.1</version>  
-        </dependency>
+		<!--用于log与slf4j保持桥接 -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
+			<version>2.4.1</version>
+		</dependency>
 
 		<!-- JSP相关 -->
 		<dependency>
@@ -98,20 +98,25 @@
 			<version>1.9.13</version>
 		</dependency>
 
-		<!-- apache.commons依赖 -->
+		<!-- 文件上传的apache.commons依赖 -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>1.3.2</version>
 		</dependency>
-		
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+
 		<!-- email支持 -->
 		<dependency>
 			<groupId>javax.mail</groupId>
 			<artifactId>mail</artifactId>
 			<version>1.4.1</version>
 		</dependency>
-		
+
 		<!-- 校验依赖 -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -121,17 +126,9 @@
 	</dependencies>
 
 	<build>
-		<!-- <plugins>
-			配置Tomcat插件
-			<plugin>
-				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat7-maven-plugin</artifactId>
-				<configuration>
-					<port>8080</port>
-					<path>/</path>
-				</configuration>
-			</plugin>
-		</plugins> -->
+		<!-- <plugins> 配置Tomcat插件 <plugin> <groupId>org.apache.tomcat.maven</groupId> 
+			<artifactId>tomcat7-maven-plugin</artifactId> <configuration> <port>8080</port> 
+			<path>/</path> </configuration> </plugin> </plugins> -->
 		<finalName>blog</finalName>
 	</build>
 </project>

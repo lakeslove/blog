@@ -71,7 +71,7 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	
-	<!-- 国际化（多语言对应） 开始 -->
+	<!-- 信息 开始 -->
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basenames">
@@ -85,7 +85,7 @@
 		<property name="defaultEncoding" value="UTF-8" />
 		<property name="cacheSeconds" value="600" />
 	</bean>
-	<!-- 国际化（多语言对应） 结束-->
+	<!-- 信息 结束-->
 	
 	<!-- 异常处理 start -->
 	<bean class="com.lx.blog.exception.ExceptionHandler" />
@@ -93,7 +93,7 @@
 		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
 		<property name="exceptionMappings">
 			<props>
-				<prop key="org.springframework.web.multipart.MaxUploadSizeExceededException">error_fileupload</prop>
+				<prop key="org.springframework.web.multipart.MaxUploadSizeExceededException">testError</prop>
 			</props>
 		</property>
 	</bean>
