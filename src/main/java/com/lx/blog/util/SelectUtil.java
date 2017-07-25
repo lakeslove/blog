@@ -17,7 +17,7 @@ public class SelectUtil {
 		return SilgleSelectUtil.INSTANCE.getOptionList(labelAndValueArray);
 	}
 	
-	public class Option{
+	public static class Option{
 		private Option(String label,String value){
 			this.label = label;
 			this.value = value;
@@ -32,35 +32,21 @@ public class SelectUtil {
 		}
 	}
 	
+	/**
+	 * label和value之间必须用:分离
+	 * @param labelAndValueArray
+	 * @return
+	 */
 	private List<Option> getOptionList(String[] labelAndValueArray){
 		List<Option> optionList = new ArrayList<>();
 		for(String labelAndValue:labelAndValueArray){
-			String label = labelAndValue.split(":")[0];
-			String value = labelAndValue.split(":")[1];
+			String[] tmpArray = labelAndValue.split(":");
+			String label = tmpArray[0];
+			String value = tmpArray[1];
 			Option option = new Option(label,value);
 			optionList.add(option);
 		}
 		return optionList;
 	}
-	
-//	public static List<Map<String,String>> getList(ArrayList<String> values,ArrayList<String> labels) throws Exception{
-//		if(values==null||labels==null){
-//			throw new Exception("values==null||labels==null");
-//		}
-//		if(values.size()==0||labels.size()==0){
-//			throw new Exception("values.size()==0||labels.size()==0");
-//		}
-//		if(values.size()!=labels.size()){
-//			throw new Exception("values.size()!=labels.size()");
-//		}
-//		List<Map<String,String>> optionList = new ArrayList<>();
-//		for(int i = 0;i<values.size();i++){
-//			Map<String, String> option = new HashMap<String,String>();
-//			option.put("value", values.get(i));
-//			option.put("label", labels.get(i));
-//			optionList.add(option);
-//		}
-//		return optionList;
-//	}
 
 }

@@ -12,6 +12,11 @@ import org.springframework.ui.Model;
 
 public class StringEscapeUtils {
 	
+	/**
+	 * 用递归的方式转换一个类里所有的字符串里的特殊字符
+	 * @param object
+	 * @return
+	 */
 	public static Object escapeHtmlForBean(Object object) {
 		if(object == null) {
 			return null;
@@ -41,7 +46,14 @@ public class StringEscapeUtils {
 		return objNew;
 	}
 
+	/**
+	 * 转换一个字符串里的特殊字符
+	 * 这个方法有待改善
+	 * @param string
+	 * @return
+	 */
 	public static String escapeHtml(String string) {
+		//TODO 此方法待改进
 		if (string != null) {
 			string = string.replaceAll("&", "&amp;");
 			string = string.replaceAll(" ", "&nbsp;");

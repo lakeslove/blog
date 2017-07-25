@@ -18,14 +18,12 @@ public class TestController {
 	
 	@RequestMapping(value = { "test2.htm" })
 	public String test() {
-//		System.out.println(TestError.getTestString());
 		return "index";
 	}
 	
 	@RequestMapping(value = { "testError.htm" })
 	public String error(Exception error,HttpServletRequest request,HttpServletResponse response) throws IOException {
 		error.printStackTrace();
-//		System.out.println(Arrays.toString(error.getStackTrace()));
 		return "tiles.view.body.testError";
 	}
 	

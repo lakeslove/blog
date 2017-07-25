@@ -18,7 +18,7 @@ import com.lx.blog.util.PageData;
 
 
 @Service
-public class EssayServiceImpl extends AbstractService<Essay, Long>implements EssayService {
+public class EssayServiceImpl extends AbstractServiceImpl<Essay, Long>implements EssayService {
 
 	private static final Logger log = LogManager.getLogger(EssayServiceImpl.class);
 

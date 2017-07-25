@@ -11,7 +11,11 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 public final class SpringEmailUtil {
 	public static LinkedBlockingQueue<JavaMailSender> mailSenderQueue;
 	
-	private static void initMailSenderQueue(int numberOfMailSender){
+	/**
+	 * 当需要多线程发送邮件时，请先初始多个MailSender
+	 * @param numberOfMailSender
+	 */
+	public static void initMailSenderQueue(int numberOfMailSender){
 		mailSenderQueue = new LinkedBlockingQueue<JavaMailSender>(numberOfMailSender);
 		for (int i = 0; i < numberOfMailSender; i++) {
 			JavaMailSender mailSender = getJavaMailSender();
@@ -19,11 +23,21 @@ public final class SpringEmailUtil {
 		}
 	}
 	
+	/**
+	 * 获取JavaMailSender
+	 * 当想自定义邮件时，可用这个方法
+	 * @return
+	 */
 	public static JavaMailSender getJavaMailSender() {
 		JavaMailSender mailSender = SpringBeanUtil.getBean(JavaMailSender.class, "mailSender");
 		return mailSender;
 	}
 
+	/**
+	 * 当单独发送一封邮件时，可用这个方法
+	 * @param email
+	 * @throws Exception
+	 */
 	public static void sendEmail(Email email) throws Exception {
 		if(mailSenderQueue==null||mailSenderQueue.size()==0){
 			initMailSenderQueue(1);

@@ -5,7 +5,7 @@ import java.util.List;
 import com.lx.blog.model.User;
 import com.lx.blog.util.PageData;
 
-public interface UserService extends Service<User, Long>{
+public interface UserService extends AbstractService<User, Long>{
 	PageData<User> serchUsers(User user,int currentPage);
 	User getUser(Long id);
 	int insertUser(User user);

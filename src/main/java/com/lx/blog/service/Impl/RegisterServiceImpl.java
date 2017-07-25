@@ -22,7 +22,7 @@ import com.lx.blog.util.VelocitiesUtil;
 
 
 @Service
-public class RegisterServiceImpl extends AbstractService<Register, Long>implements RegisterService {
+public class RegisterServiceImpl extends AbstractServiceImpl<Register, Long>implements RegisterService {
 
 	private static final Logger log = LogManager.getLogger(RegisterServiceImpl.class);
 

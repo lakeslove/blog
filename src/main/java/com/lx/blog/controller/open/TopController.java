@@ -16,9 +16,6 @@ import com.lx.blog.model.UserMessage;
 public class TopController {
 	private static final Logger log = LoggerFactory.getLogger(AbstractController.class);
 	
-//	@Autowired
-//	private UserService userService;
-	
 	@RequestMapping(value = { "index.htm" })
 	public String index() {
 		return "tiles.view.body.index";

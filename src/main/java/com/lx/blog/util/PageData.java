@@ -5,21 +5,21 @@ import java.util.List;
 
 public class PageData<T> implements Serializable {
 
-	private static final long serialVersionUID = 6004807783441437877L;
+	private static final Long serialVersionUID = 6004807783441437877L;
 
 	public double perPageNum = 10;
 
-	private long sizeOfAll;
+	private Long sizeOfAll;
 
-	private int sumPage;
+	private Integer sumPage;
 
-	private int sizeInCurrentPage;
+	private Integer sizeInCurrentPage;
 
-	private int currentPage;
+	private Integer currentPage;
 
 	private List<T> listInCurrentPage;
 	
-	public PageData(int currentPage){
+	public PageData(Integer currentPage){
 		this.sizeOfAll = 0l;
 		this.sumPage = 1;
 		this.currentPage = currentPage;
@@ -37,51 +37,51 @@ public class PageData<T> implements Serializable {
 		}
 	}
 
-	public int sumPage(Long sizeOfAll) {
+	public Integer sumPage(Long sizeOfAll) {
 		return (int) Math.ceil(sizeOfAll / perPageNum);
 	}
 
-	public int getOffset(int page) {
+	public Integer getOffset(Integer page) {
 		return (int)((page - 1) * perPageNum);
 	}
 
-	public int getPerPageNum() {
+	public Integer getPerPageNum() {
 		return (int)perPageNum;
 	}
 
-	public void setPerPageNum(int perPageNum) {
+	public void setPerPageNum(Integer perPageNum) {
 		this.perPageNum = perPageNum;
 	}
 
-	public long getSizeOfAll() {
+	public Long getSizeOfAll() {
 		return sizeOfAll;
 	}
 
-	public void setSizeOfAll(long sizeOfAll) {
+	public void setSizeOfAll(Long sizeOfAll) {
 		this.sizeOfAll = sizeOfAll;
 	}
 
-	public long getSumPage() {
-		return sumPage;
+	public Long getSumPage() {
+		return (long)sumPage;
 	}
 
-	public void setSumPage(int sumPage) {
+	public void setSumPage(Integer sumPage) {
 		this.sumPage = sumPage;
 	}
 
-	public int getSizeInCurrentPage() {
+	public Integer getSizeInCurrentPage() {
 		return sizeInCurrentPage;
 	}
 
-	public void setSizeInCurrentPage(int sizeInCurrentPage) {
+	public void setSizeInCurrentPage(Integer sizeInCurrentPage) {
 		this.sizeInCurrentPage = sizeInCurrentPage;
 	}
 
-	public long getCurrentPage() {
-		return currentPage;
+	public Long getCurrentPage() {
+		return (long)currentPage;
 	}
 
-	public void setCurrentPage(int currentPage) {
+	public void setCurrentPage(Integer currentPage) {
 		this.currentPage = currentPage;
 	}
 

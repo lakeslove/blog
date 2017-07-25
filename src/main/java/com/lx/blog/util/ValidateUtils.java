@@ -45,6 +45,11 @@ public class ValidateUtils {
 		return false;
 	}
 
+	/**
+	 * 忽略生日，只按年来计算岁数
+	 * @param birthdayYear
+	 * @return
+	 */
 	public final static int birthdayYearToAge(int birthdayYear) {
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String systemTime = df.format(new Date());
@@ -53,6 +58,11 @@ public class ValidateUtils {
 		return age;
 	}
 
+	/**
+	 * 按出生年月来计算岁数
+	 * @param birthday
+	 * @return
+	 */
 	public static int birthdayToAge(Date birthday) {
 		Calendar cal = Calendar.getInstance();
 

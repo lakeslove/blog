@@ -71,7 +71,12 @@ public class FilesIOUtil {
 		return null;
 	}
 	
-	//用javaIo方法 文件下载
+	
+	/**
+	 * 用javaIo方法 文件下载
+	 * @param response
+	 * @param filePath
+	 */
 	public static void downloadFilesByJavaIo(HttpServletResponse response,String filePath){
 		try(InputStream inStream = new FileInputStream(filePath);
 			BufferedOutputStream outputStream = new BufferedOutputStream(response.getOutputStream())){
@@ -90,7 +95,15 @@ public class FilesIOUtil {
 			e.printStackTrace();
 		}
 	} 
-	//用spring框架的方法 文件下载
+	
+	
+	/**
+	 * 用spring框架的方法 文件下载
+	 * @param response
+	 * @param filePath
+	 * @return
+	 * @throws IOException
+	 */
 	public static ResponseEntity<byte[]> downloadFilesBySpring(HttpServletResponse response,String filePath) throws IOException{
 		String fileName = filePath.substring(filePath.lastIndexOf(File.separator)+1);
 		fileName = new String(fileName.getBytes("utf-8"), "ISO8859-1");
@@ -99,7 +112,15 @@ public class FilesIOUtil {
 		headers.setContentDispositionFormData("attachment", fileName);
 		return new ResponseEntity<byte[]>(FileUtils.readFileToByteArray(new File(filePath)), headers, HttpStatus.CREATED);
 	}
-	//单文件上传
+	
+	
+	/**
+	 * 单文件上传
+	 * @param file
+	 * @param savePath
+	 * @throws IllegalStateException
+	 * @throws IOException
+	 */
 	public static void uploadSingleFile(MultipartFile file,String savePath) throws IllegalStateException, IOException{
 		String realFileName = file.getOriginalFilename();  
         // 创建文件   
@@ -107,11 +128,19 @@ public class FilesIOUtil {
         if (!dirPath.exists()) {
             dirPath.mkdir();   
         }   
-//        File uploadFile = new File(savePath + File.separator + realFileName);  
+        // File uploadFile = new File(savePath + File.separator + realFileName);  
         File uploadFile = new File(savePath + realFileName);  
         file.transferTo(uploadFile);
 	}
-	//多文件上传
+	
+	
+	/**
+	 * 多文件上传
+	 * @param fileMap
+	 * @param savePath
+	 * @throws IllegalStateException
+	 * @throws IOException
+	 */
 	public static void uploadMultiFiles(Map<String, MultipartFile> fileMap,String savePath) throws IllegalStateException, IOException{
 		for (Map.Entry<String, MultipartFile> entity : fileMap.entrySet()) {
             MultipartFile mf = entity.getValue();   
@@ -121,7 +150,15 @@ public class FilesIOUtil {
             // FileCopyUtils.copy(mf.getBytes(), uploadFile);   
         } 
 	}
-	//多文件上传
+	
+	
+	/**
+	 * 多文件上传
+	 * @param fileList
+	 * @param savePath
+	 * @throws IllegalStateException
+	 * @throws IOException
+	 */
 	public static void uploadMultiFiles(List<MultipartFile> fileList,String savePath) throws IllegalStateException, IOException{
 		for (MultipartFile file : fileList) {  
             String fileName = file.getOriginalFilename();   

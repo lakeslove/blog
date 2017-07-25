@@ -42,6 +42,11 @@ public class PropertyUtil {
 		}
 	}
 	
+	/**
+	 * 获取属性值
+	 * @param propertiesName
+	 * @return
+	 */
 	public static Properties getProperties(String propertiesName) {
 		Properties propertiesTmp = loadProperties(propertiesName);
 		return propertiesTmp;

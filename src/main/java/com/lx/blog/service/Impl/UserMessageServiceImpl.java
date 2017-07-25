@@ -11,7 +11,7 @@ import com.lx.blog.service.UserMessageService;
 
 
 @Service
-public class UserMessageServiceImpl extends AbstractService<UserMessage, Long> implements UserMessageService {
+public class UserMessageServiceImpl extends AbstractServiceImpl<UserMessage, Long> implements UserMessageService {
 
 	private static final Logger log = LogManager.getLogger(UserMessageServiceImpl.class);
 

@@ -14,7 +14,7 @@ import com.lx.blog.util.PageData;
 
 
 @Service
-public class UserServiceImpl extends AbstractService<User, Long>implements UserService {
+public class UserServiceImpl extends AbstractServiceImpl<User, Long>implements UserService {
 
 	private static final Logger log = LogManager.getLogger(UserServiceImpl.class);
 

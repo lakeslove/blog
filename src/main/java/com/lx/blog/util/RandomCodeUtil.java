@@ -53,11 +53,4 @@ public class RandomCodeUtil {
 		char lowercase = (char) ('a'+getRandomNumber(26));
 		return lowercase;
 	}
-	
-	public static void main(String[] args){
-		for(int i= 0;i<10;i++){
-			System.out.println(getRandomNumber(2));
-			
-		}
-	}
 }
