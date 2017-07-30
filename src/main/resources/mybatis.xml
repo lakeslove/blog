@@ -26,11 +26,12 @@
 	</typeAliases>
 	
 	<!-- 插件设置 -->
-	<plugins>
+	<!-- <plugins>
+		自定义的在INFO级别打印Mybatis的执行的SQL语句的插件
 		<plugin interceptor="com.lx.blog.util.mybatis.plugin.MybatisLogPlugin">
 			<property name="prefix" value="Mybatis执行的SQL"/>
 		</plugin>
-	</plugins>
+	</plugins> -->
 	
 	<!-- 指定映射器 -->
 	<mappers>

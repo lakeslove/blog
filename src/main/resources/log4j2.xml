@@ -26,6 +26,10 @@
 
 	<Loggers>
 		<!-- level = OFF、FATAL、ERROR、WARN、INFO、DEBUG、TRACE、 ALL -->
+		<logger name="com.lx.blog.dao" level="DEBUG">
+		</logger>
+		<logger name="org.mybatis.spring" level="DEBUG">
+		</logger>
 		<Root level="INFO" >
 			<AppenderRef ref="Console" />
 			<AppenderRef ref="running-log" />

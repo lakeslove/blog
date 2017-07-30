@@ -14,10 +14,11 @@ import com.lx.blog.model.UserMessage;
 
 @Controller
 public class TopController {
-	private static final Logger log = LoggerFactory.getLogger(AbstractController.class);
+	private static final Logger log = LoggerFactory.getLogger(TopController.class);
 	
 	@RequestMapping(value = { "index.htm" })
 	public String index() {
+		log.debug("index.htm");
 		return "tiles.view.body.index";
 	}
 	
