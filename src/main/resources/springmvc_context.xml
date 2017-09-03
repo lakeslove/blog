@@ -10,11 +10,11 @@
         http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd     
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-4.2.xsd">
-        
+    
+    <!-- 设置默认配置方案 -->
+    <mvc:annotation-driven/>    
     <!-- 自动扫描该包，SpringMVC会将包下用了@controller注解的类注册为Spring的controller -->
     <context:component-scan base-package="com.lx.blog.controller" />
-    <!-- 设置默认配置方案 -->
-    <mvc:annotation-driven/>
     <!-- 使用默认的Servlet来响应静态文件 -->
     <mvc:default-servlet-handler/>
     
@@ -29,17 +29,10 @@
 		</property>
 	</bean>
 	
-	<!-- tiles 配置开始 -->
-	<bean id="viewResolver"
-		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
-		<property name="order" value="1" />
-		<property name="viewClass">
-			<value>
-				org.springframework.web.servlet.view.tiles3.TilesView
-			</value>
-		</property>
+	 <!-- tiles 配置开始 -->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
+	<property name="order" value="1" />
 	</bean>
-	
 	<bean id="tilesConfigurer"
 		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
 		<property name="definitions">
@@ -47,6 +40,7 @@
 				<value>/WEB-INF/classes/tilesOpen.xml</value>
 			</list>
 		</property>
+		<!-- <property name="checkRefresh" value="true"/> -->
 	</bean>
 	<!-- tiles 配置结束 -->
 	<!-- viewResolver end -->

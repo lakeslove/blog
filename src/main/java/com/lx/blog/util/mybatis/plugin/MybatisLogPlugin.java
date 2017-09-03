@@ -47,6 +47,7 @@ public class MybatisLogPlugin implements Interceptor{
 
 	@Override
 	public Object plugin(Object target) {
+		//使用默认的mybatis提供的类生成代理对象
 		return Plugin.wrap(target, this);
 	}
 

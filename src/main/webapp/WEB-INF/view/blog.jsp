@@ -42,7 +42,8 @@ ${errorText}
 </tr>
 <tr>
 <td colspan="2">
-<textarea name="content" rows="" cols="" class="blogContent">${content}</textarea>
+<%-- <form:textarea path="content" rows="" cols="" cssClass="blogContent"></form:textarea> --%>
+<textarea name="content" rows="" cols="" class="blogContent"><c:out value="${content}"></c:out></textarea>
 </td>
 </tr>
 <tr><td colspan="2"><input type="submit" value="保存"></td></tr>

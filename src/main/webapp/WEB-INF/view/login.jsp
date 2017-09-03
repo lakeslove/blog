@@ -26,7 +26,7 @@ function checkParameters(){
 <tr><td colspan="2"><span id="errorText" class="errorText">
 ${validateError}
 </span></td></tr>
-<tr><td>邮箱</td><td><form:input id="email" type="text" path="email" placeholder="邮箱"/></td></tr>
+<tr><td>邮箱</td><td><form:input id="email" type="email" path="email" placeholder="邮箱"/></td><td><form:errors path="email" cssClass="errorText"/></td></tr>
 <tr><td>密码</td><td><form:input id="password" type="password" path="password" placeholder="最长8位"/></td></tr>
 <tr><td colspan="2"><input type="submit" value="登录"></td></tr>
 </table>

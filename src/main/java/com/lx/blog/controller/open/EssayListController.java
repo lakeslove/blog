@@ -10,10 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lx.blog.controller.AbstractController;
-import com.lx.blog.model.User;
-import com.lx.blog.model.UserMessage;
 import com.lx.blog.service.EssayService;
-import com.lx.blog.service.UserMessageService;
 
 @Controller
 public class EssayListController extends AbstractController{
